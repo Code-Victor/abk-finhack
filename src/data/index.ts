@@ -23,26 +23,23 @@ export const socialLinks= [
     ]
 export const FAQ = [
   {
-    question: "How much is delivery fee?",
-    answer: "Delivery is N1500 on all orders",
+    question: "What is a hackathon?",
+    answer:
+      "Final registration deadline only open to newly formed teams at the Abeokuta FinHack Event. At least one of the team members must have registered as an individual before the early deadline.",
   },
   {
-    question: "How long after I order will you deliver?",
+    question: "Do I need to be able to code?",
     answer:
       "You get your order the same day you put it in and complete payment",
   },
   {
-    question: "How do I make payment?",
+    question: "How big should the team be?",
     answer: "You can make payments via transfer/card from the app",
   },
   {
-    question: "How do I track my order?",
+    question:
+      "How can I find a team if I sign up for the hackathon alone or don’t have a team already?",
     answer:
       "We give you real time updates via app notifications at every point of your delivery process.",
-  },
-  {
-    question: "How can I contact you?",
-    answer:
-      "You can reach us via email at hello@useglouse.com or via any of our social media pages.",
-  },
+  }
 ];

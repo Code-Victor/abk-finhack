@@ -10,6 +10,7 @@ export const buttonVariants = cva(
       variant: {
         primary: "btn-fancy",
         outline: "border border-[#170F0E] hover:bg-[#170F0E]/5",
+        lemon: "bg-[#597001]",
         "outline-light": "text-white border border-white hover:bg-white/5",
         "outline-primary":
           "border border-primary bg-[#f7dfd4] hover:bg-[#f7dfd4]/90",
@@ -27,7 +28,9 @@ export const buttonVariants = cva(
         true: "p-[0!important]",
       },
       rounded: {
+        sm: "rounded-sm",
         default: "rounded-md",
+        lg: "rounded-lg",
         full: "rounded-full",
         none: "rounded-none",
       },
@@ -47,7 +50,7 @@ export const buttonVariants = cva(
       {
         icon: true,
         size: "sm",
-        className: "h-7 w-7",
+        className: "h-8 w-8",
       },
       {
         icon: true,

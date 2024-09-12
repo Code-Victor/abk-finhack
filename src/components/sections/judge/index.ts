@@ -1,0 +1,1 @@
+export {default as Judges} from "./Section.astro"

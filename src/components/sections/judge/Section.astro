@@ -1,0 +1,23 @@
+---
+import Card from "./Card.astro";
+---
+
+<section id="faq" class="relative bg-white text-[#010225]">
+  <div class="relative z-[1] max-w-6xl mx-auto py-16 md:py-20 px-4 space-y-10">
+    <div class="flex flex-col gap-2.5">
+      <h2 class="font-adoha text-2xl md:text-[44px] md:leading-[66px]">
+        Experts
+      </h2>
+      <p class="text-[#4F4F4F] font-medium max-w-3xl">
+        Insights and guidance from leading professionals in the field, sharing
+        their knowledge and experience to help you stay ahead and excel.
+      </p>
+    </div>
+    <div class="grid gap-x-4 gap-y-6 sm:grid-cols-2 md:grid-cols-3 md:gap-x-6 md:gap-y-8 lg:grid-cols-4">
+      <Card/>
+      <Card/>
+      <Card/>
+      <Card/>
+    </div>
+  </div>
+</section>
