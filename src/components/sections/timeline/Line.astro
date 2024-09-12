@@ -1,0 +1,35 @@
+---
+import emblem1 from "@/assets/images/emblem-1.svg";
+import emblem2 from "@/assets/images/emblem-2.svg";
+import { Image } from "astro:assets";
+import { cn } from "@/utils";
+
+interface Props {
+  registrationRelated?: boolean;
+  isLast: boolean;
+  isFirst: boolean;
+}
+const { registrationRelated = false, isLast, isFirst } = Astro.props;
+---
+
+<div class="flex flex-col h-full justify-center items-center">
+  <div
+    class={cn(
+      "w-0 flex-1",
+      !isFirst && "border-l-2 border-dashed border-[#BDBDBD]",
+    )}
+  >
+  </div>
+  <Image
+    src={registrationRelated ? emblem1 : emblem2}
+    alt="emblem"
+    class="w-7 h-7"
+  />
+  <div
+    class={cn(
+      "w-0 flex-1",
+      !isLast && "border-l-2 border-dashed border-[#BDBDBD]",
+    )}
+  >
+  </div>
+</div>
