@@ -1,0 +1,108 @@
+---
+import type { HTMLTag, Polymorphic } from "astro/types";
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "@/utils";
+
+export const buttonVariants = cva(
+  "inline-flex gap-2 items-center justify-center font-medium ring-offset-background transition duration-200 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:bg-gray-3 disabled:text-white",
+  {
+    variants: {
+      variant: {
+        primary: "bg-primary text-white hover:bg-primary/90 btn-shadow",
+        outline: "border border-[#170F0E] hover:bg-[#170F0E]/5",
+        "outline-light": "text-white border border-white hover:bg-white/5",
+        "outline-primary":
+          "border border-primary bg-[#f7dfd4] hover:bg-[#f7dfd4]/90",
+        ghost: "hover:bg-accent hover:text-accent-foreground text-primary",
+        "ghost-light": "hover:bg-white/20 text-white",
+        link: "text-primary underline-offset-4 hover:underline",
+        unstyled: "",
+      },
+      size: {
+        sm: "h-9 px-4 text-xs [--icon-size:16px]",
+        default: "px-6 h-10 md:h-12 text-sm [--icon-size:18px]",
+        lg: "py-3 px-6 text-base font-semibold [--icon-size:24px]",
+      },
+      icon: {
+        true: "p-[0!important]",
+      },
+      rounded: {
+        default: "rounded-md",
+        full: "rounded-full",
+        none: "rounded-none",
+      },
+      fullWidth: {
+        true: "w-full",
+      },
+      insetShadow: {
+        true: "inset-box-shadow",
+      },
+    },
+    compoundVariants: [
+      {
+        icon: true,
+        size: "default",
+        className: "h-10 w-10",
+      },
+      {
+        icon: true,
+        size: "sm",
+        className: "h-7 w-7",
+      },
+      {
+        icon: true,
+        size: "lg",
+        className: "h-12 w-12",
+      },
+    ],
+    defaultVariants: {
+      variant: "primary",
+      size: "default",
+      rounded: "full",
+    },
+  }
+);
+
+type Props<Tag extends HTMLTag = "button"> = Polymorphic<{
+  as: Tag;
+}> &
+  VariantProps<typeof buttonVariants>;
+
+const {
+  as: Tag = "button",
+  variant = "primary",
+  size = "default",
+  fullWidth,
+  rounded,
+  icon,
+  class: classProp,
+  ...rest
+} = Astro.props;
+const className = cn(
+  buttonVariants({
+    variant,
+    size,
+    fullWidth,
+    rounded,
+    icon,
+    class: classProp,
+  })
+);
+---
+
+<Tag class={className} {...rest}>
+  <slot name="icon-before" />
+  <slot />
+  <slot name="icon-after" />
+</Tag>
+<style>
+  .btn-shadow {
+    box-shadow: 0px 4px 10px 0px #33333326;
+  }
+</style>
+<style is:inline>
+  svg {
+    height: var(--icon-size);
+    width: var(--icon-size);
+  }
+</style>
