@@ -1,3 +1,4 @@
+import defaultTheme from "tailwindcss/defaultTheme";
 const {
   default: flattenColorPalette,
 } = require("tailwindcss/lib/util/flattenColorPalette");
@@ -7,6 +8,10 @@ export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     extend: {
+      fontFamily: {
+        "dm-sans": ["'DM Sans'", ...defaultTheme.fontFamily.sans],
+        Adoha: ["Adoha", ...defaultTheme.fontFamily.sans],
+      },
       animation: {
         aurora: "aurora 60s linear infinite",
       },

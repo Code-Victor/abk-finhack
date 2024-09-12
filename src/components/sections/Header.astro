@@ -4,7 +4,8 @@ import { Button } from "../base";
 import { Image } from "astro:assets";
 import Logo from "@/assets/images/logo.png";
 import { Icon } from "astro-icon/components";
-const links = ["Events", "Organizations", "News & Articles"];
+const links = ["About","Challenge","Prizes","Guidelines","Judges","FAQ"];
+
 ---
 
 <header
@@ -12,7 +13,7 @@ const links = ["Events", "Organizations", "News & Articles"];
   class="fixed top-0 left-0 right-0 px-4 pt-4 md:pt-5 pb-0 z-20 transition-transform duration-300 delay-100"
 >
   <nav
-    class="flex items-center justify-between max-w-5xl mx-auto rounded-full h-[--navbar-height] bg-[#222222CC] p-2.5 pl-5 backdrop-blur-md"
+    class="header-border flex items-center justify-between max-w-5xl mx-auto rounded-full h-[--navbar-height] border border-white/10 bg-[#01022588] p-2.5 pl-5 backdrop-blur-md"
   >
     <Image src={Logo} alt="logo" class="h-full w-auto py-1.5" />
     <div
@@ -27,15 +28,16 @@ const links = ["Events", "Organizations", "News & Articles"];
       }
     </div>
     <div class="hidden md:flex gap-2">
-      <Button>Sign up Now</Button>
-      <Button variant="outline-light">Log In</Button>
+      <Button size="sm" >
+        
+        <Icon name="ri:sparkling-line" class="text-[#333333]" />
+        Register Now</Button>
     </div>
     <Button class="md:hidden" variant="ghost-light" size="lg" icon>
       <Icon name="mdi:menu" class="size-6 text-white" />
     </Button>
   </nav>
 </header>
-
 <script>
   function main() {
     let lastScrollTop = 0;

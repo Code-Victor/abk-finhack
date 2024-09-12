@@ -8,7 +8,7 @@ export const buttonVariants = cva(
   {
     variants: {
       variant: {
-        primary: "bg-primary text-white hover:bg-primary/90 btn-shadow",
+        primary: "btn-fancy",
         outline: "border border-[#170F0E] hover:bg-[#170F0E]/5",
         "outline-light": "text-white border border-white hover:bg-white/5",
         "outline-primary":
@@ -19,7 +19,7 @@ export const buttonVariants = cva(
         unstyled: "",
       },
       size: {
-        sm: "h-9 px-4 text-xs [--icon-size:16px]",
+        sm: "h-10 px-4 text-xs [--icon-size:16px]",
         default: "px-6 h-10 md:h-12 text-sm [--icon-size:18px]",
         lg: "py-3 px-6 text-base font-semibold [--icon-size:24px]",
       },
@@ -98,6 +98,14 @@ const className = cn(
 <style>
   .btn-shadow {
     box-shadow: 0px 4px 10px 0px #33333326;
+  }
+  .btn-fancy{
+    box-shadow: 0px 0px 0px 3px #1CFFFF2B;
+    box-shadow: 0px 1px 2px 0px #1DFFFF8C;
+    background: linear-gradient(0deg, #AACF1D, #AACF1D),
+    linear-gradient(180deg, rgba(18, 40, 55, 0) -175%, rgba(74, 240, 255, 0.5) 140%);
+    border: 1px solid;
+    border-image-source: linear-gradient(180deg, rgba(255, 255, 255, 0.21) 0%, rgba(255, 255, 255, 0) 100%);
   }
 </style>
 <style is:inline>
