@@ -1,0 +1,21 @@
+---
+import Card from "./Card.astro";
+---
+
+<section id="organisers" class="relative bg-[#020323] py-16 md:py-20">
+  <div class="max-w-6xl mx-auto space-y-6 md:space-y-10">
+    <div class="grid gap-2.5">
+      <h2 class="font-adoha text-center text-2xl md:text-[40px] text-white">
+        Organisers
+      </h2>
+      <p class="text-center text-white max-w-2xl mx-auto">
+        Meet our skilled team, dedicated to ensuring a smooth and exceptional
+        event experience through expert planning and coordination.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+      <Card poweredBy="bcn" />
+      <Card poweredBy="payaza" />
+    </div>
+  </div>
+</section>

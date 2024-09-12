@@ -1,0 +1,45 @@
+---
+import { AbkFinHackLogo, Button } from "../base";
+import { links, socialLinks } from "@/data";
+import { Icon } from "astro-icon/components";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-[#020323] pt-12 pb-6">
+  <div
+    class="max-w-6xl mx-auto px-4 flex flex-col gap-6 md:gap-10 items-center"
+  >
+    <AbkFinHackLogo class="w-[200px] mx-auto" />
+    <div class="flex items-center gap-2">
+      {
+        links.map((link) => (
+          <Button size="sm" variant="ghost-light">
+            {link}
+          </Button>
+        ))
+      }
+    </div>
+    <div class="flex w-full justify-between">
+      <div class="flex items-center gap-2">
+        <p class="text-white text-sm">
+          © {year} AbkFinHack. All rights reserved.
+        </p>
+      </div>
+      <div class="flex items-center gap-2">
+        <p class="text-white text-sm">Privacy Policy</p>
+        <p class="text-white text-sm">Terms of Service</p>
+        <p class="text-white text-sm">Cookies</p>
+      </div>
+      <div class="flex gap-3.5">
+        {
+          socialLinks.map((link) => (
+            <Button icon size="sm" variant="ghost-light">
+              <Icon name={link.icon} class="text-[#9CA3AF]" />
+            </Button>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</footer>

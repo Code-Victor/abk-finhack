@@ -1,0 +1,118 @@
+---
+import { Icon } from "astro-icon/components";
+import { Button } from "@/components/base";
+import { FAQ } from "@/data";
+
+import bitMap from "@/assets/images/bitmap.png";
+import faqImage from "@/assets/images/faq.png";
+import { Image } from "astro:assets";
+---
+
+<section id="faq" class="relative">
+  <Image
+    src={bitMap}
+    alt="bitMap"
+    class="absolute inset-0 w-full h-full cover object-contain object-left-top"
+  />
+  <div class="relative z-[1] max-w-6xl mx-auto py-16 md:py-20 px-4">
+    <div class="space-y-2 md:space-y-3 text-center">
+      <h2
+        class="text-black font-metara text-2xl md:text-[44px] md:leading-[66px]"
+      >
+        Frequently Asked Questions
+      </h2>
+      <p class="max-w-[496px] mx-auto">
+        Qucik answers to questions you may have. Still need help?Can't find the
+        answer here? <a href="#footer" class="underline">Send us a mail</a>
+      </p>
+    </div>
+    <div class="grid md:grid-cols-2 items-center gap-4 mt-4 md:mt-8">
+      <div
+        class="flex flex-col gap-2 md:gap-3 items-center max-w-4xl w-full lg:px-4"
+      >
+        {
+          FAQ.map((faq, i) => (
+            <div class="accordion cursor-pointer w-full bg-[#E5E7EB] rounded-xl">
+              <button
+                id={`faq-${i}`}
+                aria-expanded="false"
+                aria-controls={`faq-${i}-content`}
+                class="accordion-trigger flex justify-between py-4 lg:py-6 px-4 gap-2 w-full items-center"
+              >
+                <h3 class="font-semibold text-left">{faq.question}</h3>
+                <div class="min-w-10 min-h-10 grid place-items-center rounded-full">
+                  <Icon name="ri:arrow-down-s-line" class="chevron size-6" />
+                </div>
+              </button>
+              <div
+                class="accordion-content px-4"
+                role="region"
+                id={`faq-${i}-content`}
+                aria-labelledby={`faq-${i}`}
+              >
+                <div>
+                  <p class="text-sm pt-2  pb-6">{faq.answer}</p>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+      <div class="grid place-items-center">
+        <Image
+          src={faqImage}
+          alt="faq"
+          class="hidden md:block md:col-span-1 w-full max-w-[540px]"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  .accordion-content {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 500ms;
+  }
+  .accordion-content > div {
+    overflow: hidden;
+  }
+
+  .accordion-content[aria-hidden="false"] {
+    grid-template-rows: 1fr;
+  }
+  .accordion-trigger svg {
+    transition: transform 340ms ease-in-out;
+  }
+
+  .accordion-trigger[aria-expanded="false"] svg {
+    transform: rotate(0deg);
+  }
+  .accordion-trigger[aria-expanded="true"] svg {
+    transform: rotate(180deg);
+  }
+</style>
+<script>
+  const accordions = document.querySelectorAll(".accordion");
+
+  accordions.forEach((accordion) => {
+    const trigger = accordion.querySelector(".accordion-trigger");
+    const content = accordion.querySelector(".accordion-content");
+    if (!trigger || !content) return;
+    accordion.addEventListener("click", () => {
+      const expanded = trigger.getAttribute("aria-expanded") === "true";
+      closeAll();
+      trigger.setAttribute("aria-expanded", `${!expanded}`);
+      content.setAttribute("aria-hidden", `${expanded}`);
+    });
+  });
+  function closeAll() {
+    accordions.forEach((accordion) => {
+      const trigger = accordion.querySelector(".accordion-trigger");
+      const content = accordion.querySelector(".accordion-content");
+      if (!trigger || !content) return;
+      trigger.setAttribute("aria-expanded", "false");
+      content.setAttribute("aria-hidden", "true");
+    });
+  }
+</script>

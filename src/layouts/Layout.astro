@@ -1,11 +1,11 @@
 ---
-import {BaseHead,Header} from "@/components/sections";
+import { BaseHead, Header, Footer } from "@/components/sections";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 
 import "@fontsource/dm-sans";
 
 interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
@@ -19,19 +19,20 @@ const { title } = Astro.props;
       description={SITE_DESCRIPTION}
     />
   </head>
-	<body class="font-dm-sans">
-    <Header/>
-		<slot />
-	</body>
+  <body class="font-dm-sans">
+    <Header />
+    <slot />
+    <Footer />
+  </body>
 </html>
 <style is:global>
   @font-face {
-  font-family: "Adoha";
-  src: url("/fonts/Adoha.otf") format("otf");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
+    font-family: Adoha;
+    src: url("/fonts/Adoha.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
 
   :root {
     --navbar-height: 62px;

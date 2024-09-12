@@ -1,0 +1,48 @@
+---
+import { Image } from "astro:assets";
+import Logo from "@/assets/images/logo.png";
+import PayazaLogo from "@/assets/images/payazaLogo.svg";
+import { Button } from "@/components/base";
+import { Icon } from "astro-icon/components";
+
+const poweredBy = {
+  payaza: {
+    logo: PayazaLogo,
+    name: "Payaza",
+    link: "https://payaza.africa/",
+    cta: "Learn More",
+    description:
+      "Payaza is a Fintech company revolutionising international payments and financial solutions. They specialise in simplifying international payments, offering developer-friendly APIs and SDKs for seamless integration, optimising settlements, collections, and delivering versatile payout solutions. They are dedicated to shaping the future of global finance through innovation, efficiency, and excellence.",
+  },
+  bcn: {
+    logo: Logo,
+    name: "The Radiating Church Business & Career Network",
+    link: "https://bcn.theradiating.church",
+    cta: "Join us",
+    description:
+      " TRC-BCN is a vibrant community of spiritually mature problem-solvers and entrepreneurs who harness the wisdom and power of God to fulfil their call to create and transform the world around them. We help individuals fulfil their divine purposes by developing their capacities, providing access to a community of godly high-achievers, offering local and global investment and market opportunities, and creating outlets to harness their skills and talents for transformative societal impact.",
+  },
+};
+interface CardProps {
+  poweredBy: keyof typeof poweredBy;
+}
+const { poweredBy: key } = Astro.props as CardProps;
+const { logo, name, link, cta, description } = poweredBy[key];
+---
+
+<div class="px-8 py-6 bg-[#000234] rounded-xl flex flex-col gap-6 md:gap-10">
+  <Image src={logo} alt={name} class="w-[200px]" />
+  <div class="text-left">
+    <h3 class="text-white text-lg font-bold">{name}</h3>
+    <p class="text-white text-sm md:text-base">{description}</p>
+  </div>
+  <div class="flex">
+    <Button as="a" size="sm" class="group" href={link}>
+      {cta}
+      <Icon
+        name="ri:arrow-right-line"
+        class="group-hover:translate-x-2 transition-transform duration-300"
+      />
+    </Button>
+  </div>
+</div>

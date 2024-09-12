@@ -1,25 +1,35 @@
 ---
-import { AbkFinHackLogo,Button } from "../base";
-import { AuroraBackground,Countdown } from '@/components/inc';
+import { AbkFinHackLogo, Button } from "../base";
+import { AuroraBackground, Countdown } from "@/components/inc";
 import { Icon } from "astro-icon/components";
 import Abstract1 from "@/assets/images/abstract-1.png";
 import Abstract2 from "@/assets/images/abstract-2.png";
 import { Image } from "astro:assets";
 ---
-    <AuroraBackground 
-    class="pt-[calc(var(--navbar-height)_+_36px)] w-full relative z-0 grid place-items-center min-h-screen xl:max-h-[1024px] xl:min-h-min mx-auto"
-    
-    showRadialGradient >
 
-<div class="grid gap-8">
-  <AbkFinHackLogo class="w-full max-w-[480px]"/>
-  <h1 class="font-medium text-3xl text-white text-center  font-dm-sans">Hack The Crowd, Fund The Future</h1>
-        <Button class="justify-self-center" >
-        
-        <Icon name="ri:sparkling-line" class="text-[#333333] " />
-        Register Now</Button>
-  <Countdown/>
-</div>
-<Image src={Abstract1} alt="abstract" class="absolute bottom-0 left-0 mix-blend-overlay object-cover z-[-1]"/>
-<Image src={Abstract2} alt="abstract" class="absolute bottom-0 right-0 mix-blend-overlay object-cover z-[-1]"/>
+<AuroraBackground
+  class="pt-[calc(var(--navbar-height)_+_36px)] w-full relative z-0 grid place-items-center min-h-screen xl:max-h-[1024px] xl:min-h-min mx-auto"
+  showRadialGradient
+>
+  <div class="grid gap-8">
+    <AbkFinHackLogo class="w-full max-w-[480px]" />
+    <h1 class="font-medium text-3xl text-white text-center font-dm-sans">
+      Hack The Crowd, Fund The Future
+    </h1>
+    <Button class="justify-self-center">
+      <Icon name="ri:sparkling-line" class="text-[#333333]" />
+      Register Now</Button
+    >
+    <Countdown />
+  </div>
+  <Image
+    src={Abstract1}
+    alt="abstract"
+    class="absolute bottom-0 left-0 mix-blend-overlay object-cover z-[-1]"
+  />
+  <Image
+    src={Abstract2}
+    alt="abstract"
+    class="absolute bottom-0 right-0 mix-blend-overlay object-cover z-[-1]"
+  />
 </AuroraBackground>

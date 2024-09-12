@@ -10,7 +10,7 @@ export default {
     extend: {
       fontFamily: {
         "dm-sans": ["'DM Sans'", ...defaultTheme.fontFamily.sans],
-        Adoha: ["Adoha", ...defaultTheme.fontFamily.sans],
+        adoha: ["Adoha", ...defaultTheme.fontFamily.sans],
       },
       animation: {
         aurora: "aurora 60s linear infinite",

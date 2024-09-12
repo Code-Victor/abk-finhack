@@ -4,8 +4,7 @@ import { Button } from "../base";
 import { Image } from "astro:assets";
 import Logo from "@/assets/images/logo.png";
 import { Icon } from "astro-icon/components";
-const links = ["About","Challenge","Prizes","Guidelines","Judges","FAQ"];
-
+import { links } from "@/data";
 ---
 
 <header
@@ -28,10 +27,10 @@ const links = ["About","Challenge","Prizes","Guidelines","Judges","FAQ"];
       }
     </div>
     <div class="hidden md:flex gap-2">
-      <Button size="sm" >
-        
+      <Button size="sm">
         <Icon name="ri:sparkling-line" class="text-[#333333]" />
-        Register Now</Button>
+        Register Now</Button
+      >
     </div>
     <Button class="md:hidden" variant="ghost-light" size="lg" icon>
       <Icon name="mdi:menu" class="size-6 text-white" />
