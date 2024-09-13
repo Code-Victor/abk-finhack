@@ -53,24 +53,29 @@ export const socialLinks = [
 ];
 export const FAQ = [
   {
-    question: "What is a hackathon?",
+    question: "What is Abeokuta FinHack?",
     answer:
-      "Final registration deadline only open to newly formed teams at the Abeokuta FinHack Event. At least one of the team members must have registered as an individual before the early deadline.",
+      "Abeokuta FinHack is a fintech hackathon designed by The Radiating Church Business & Career Network (TRC-BCN) to foster innovation in the financial sector. Participants are challenged to develop crowdfunding solutions using Payaza’s API, aimed at solving real-world problems in their communities.",
   },
   {
-    question: "Do I need to be able to code?",
+    question: "When and where will Abeokuta FinHack take place?",
     answer:
-      "You get your order the same day you put it in and complete payment",
+      "The hackathon runs from October 5 to November 9, 2024. The opening event will be held at Park Inn by Radisson, Kuto, Abeokuta, on October 5, 2024, from 10 am. The event is both online and onsite.",
   },
   {
-    question: "How big should the team be?",
-    answer: "You can make payments via transfer/card from the app",
+    question: "What is the challenge for participants?",
+    answer:
+      "Teams are required to use Payaza’s API to create innovative, transparent, and engaging crowdfunding solutions that address challenges in their communities. Solutions can be prototypes or proofs of concept and should not be commercially available at the time of submission.",
   },
   {
-    question:
-      "How can I find a team if I sign up for the hackathon alone or don’t have a team already?",
+    question: "How will the finalists be judged?",
     answer:
-      "We give you real time updates via app notifications at every point of your delivery process.",
+      "Solutions will be judged based on originality, feasibility, design, and technical skill.",
+  },
+  {
+    question: "Can I still participate if I don't have a team?",
+    answer:
+      "Yes! You can register as an individual, and we will assist in forming teams at the event. Teams are encouraged to have complementary skills for better performance.",
   },
 ];
 
