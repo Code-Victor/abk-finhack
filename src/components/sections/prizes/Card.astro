@@ -1,0 +1,58 @@
+---
+import { prizes } from "@/data";
+import { Image } from "astro:assets";
+import PrizeGlare from "@/assets/images/prize-glare.png";
+interface Props {
+  position: keyof typeof prizes;
+}
+const { position } = Astro.props;
+const { title, description, confetti, gradient, prize, trophy } =
+  prizes[position];
+---
+
+<div
+  class="flex-1 min-w-[300px] max-w-[360px] grid grid-cols-3 rounded-xl gap-4 items-start gradient-border relative overflow-hidden"
+  style={{
+    "--gradient": gradient,
+  }}
+>
+  <div
+    class="size-[163px] rounded-full bg-[#CDAE6F] blur-[80px] absolute bottom-0 -left-[109px]"
+  >
+  </div>
+  <Image
+    src={confetti}
+    alt="abstract"
+    class="rounded-l-xl absolute left-0 h-[80%] w-[40%] top-[50%] -translate-y-1/2 z-[0] mix-blend-screen"
+  />
+  <Image
+    src={PrizeGlare}
+    alt="abstract"
+    class="rounded-l-xl absolute inset-0 object-cover object-left"
+  />
+  <div class="flex items-end h-full relative z-[1]">
+    <Image src={trophy} alt={title} class="rounded-l-xl" />
+  </div>
+  <div class="col-span-2 flex flex-col gap-2.5 py-8 pr-4 relative z-[1]">
+    <div class="grid gap-1.5 font-semibold">
+      <p class="text-[#E0E0E0]">{title}</p>
+      <h3 class="text-[40px] gradient-text max-w-[194px]">{prize}</h3>
+    </div>
+    <p class="text-[#fff] text-xs">{description}</p>
+  </div>
+</div>
+<style>
+  .gradient-text {
+    background: linear-gradient(9.21deg, #ffffff 36.39%, #999999 112.65%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+  .gradient-border {
+    background:
+      linear-gradient(#000347, #000347) padding-box,
+      linear-gradient(var(--gradient)) border-box;
+    border: 1.5px solid transparent;
+  }
+</style>

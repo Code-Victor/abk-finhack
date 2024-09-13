@@ -1,0 +1,20 @@
+---
+import Card from "./Card.astro";
+---
+
+<section id="prizes" class="relative bg-[#020323] py-16 md:py-20 px-4">
+  <div class="max-w-6xl mx-auto space-y-6 md:space-y-10">
+    <div class="grid gap-1.5 md:gap-2.5">
+      <h2 class="font-adoha text-3xl md:text-[40px] text-white">
+        Prize
+      </h2>
+      <p class="text-sm md:text-base text-white max-w-2xl">
+        Win exciting rewards and boost your career with exclusive opportunities
+      </p>
+    </div>
+  <div class="flex flex-wrap justify-center gap-6">
+    {([1,2,3]as const).map((position)=>(
+        <Card position={position} />
+    ))}
+  </div>
+</section>

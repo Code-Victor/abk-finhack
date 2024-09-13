@@ -1,11 +1,20 @@
+// Who Can Participate?
 import BussinessVisionaries from "../assets/images/business-visionaries.png";
 import TechInnovators from "../assets/images/tech-innovators.png";
 import CreativeMinds from "../assets/images/creative-minds.png";
+// Why Participate
 import Collaborate from "../assets/images/collaborate.png";
 import Learn from "../assets/images/learn.png";
 import Innovate from "../assets/images/innovate.png";
 import Network from "../assets/images/network.png";
 import Win from "../assets/images/win.png";
+// Prizes
+import GoldTrophy from "../assets/images/gold-trophy.png";
+import SilverTrophy from "../assets/images/silver-trophy.png";
+import BronzeTrophy from "../assets/images/bronze-trophy.png";
+import GoldConfetti from "../assets/images/gold-confetti.png";
+import SilverConfetti from "../assets/images/silver-confetti.png";
+import BronzeConfetti from "../assets/images/bronze-confetti.png";
 
 export const links = [
   "About",
@@ -124,7 +133,6 @@ export const whoCanParticipate = [
   },
 ];
 
-
 export const whyParticipate = [
   {
     title: "Collaborate",
@@ -157,3 +165,33 @@ export const whyParticipate = [
     image: Win,
   },
 ];
+
+export const prizes = {
+  1: {
+    trophy: GoldTrophy,
+    confetti: GoldConfetti,
+    title: "First Place",
+    prize: "₦800K",
+    description:
+      "N800,000 to be shared equally among all team members Publicity through TRC-BCN and Payaza’s communication channels Possible internship with the Payaza team",
+    gradient: "116.99deg, #CDAE6F 0.78%, #534324 100%",
+  },
+  2: {
+    trophy: SilverTrophy,
+    confetti: SilverConfetti,
+    title: "Second Place",
+    prize: "₦500K",
+    description:
+      "N500,000 to be shared equally among all team members Publicity through TRC-BCN and Payaza’s communication channels Possible internship with the Payaza team",
+    gradient: "116.99deg, #BFBEC3 0.78%, #464646 100%",
+  },
+  3: {
+    trophy: BronzeTrophy,
+    confetti: BronzeConfetti,
+    title: "Third Place",
+    prize: "₦300K",
+    description:
+      "N300,000 to be shared equally among all team members Publicity through TRC-BCN and Payaza’s communication channels Possible internship with the Payaza team",
+    gradient: "116.99deg, #A56229 0.78%, #4D2A0B 100%",
+  },
+};

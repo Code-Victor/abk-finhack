@@ -8,3 +8,4 @@ export { PoweredBy } from "./poweredBy";
 export { Timeline } from "./timeline";
 export { Judges } from "./judge";
 export { Challenge } from "./challenge";
+export { Prizes } from "./prizes";
