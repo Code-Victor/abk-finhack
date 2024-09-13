@@ -22,12 +22,12 @@ import Guideline3 from "../assets/images/guideline-3.png";
 import Guideline4 from "../assets/images/guideline-4.png";
 
 export const links = [
-  "About",
-  "Challenge",
-  "Prizes",
-  "Guidelines",
-  "Judges",
-  "FAQ",
+  { label: "About", href  : "#about" },
+  { label: "Challenge", href  : "#challenge" },
+  { label: "Prizes", href : "#prizes" },
+  { label: "Guidelines", href : "#guidelines" },
+  { label: "Judges", href : "#judges" },
+  { label: "FAQ", href  : "#faq" },
 ];
 export const socialLinks = [
   {
@@ -222,11 +222,13 @@ export const guidelines = [
   {
     image: Guideline3,
     title: "Explore Payaza’s APIs for inspiration",
-    description:"Gain access to Payaza’s robust set of tools and capabilities that can be seamlessly integrated into your proposed applications"
+    description:
+      "Gain access to Payaza’s robust set of tools and capabilities that can be seamlessly integrated into your proposed applications",
   },
   {
     image: Guideline4,
     title: "Attend the Abeokuta FinHack event",
-    description: "Attend the Abeokuta FinHack event to confirm your hackathon registration, gain insights into the challenge, and explore the Fintech space. You'll also have the chance to network with fellow participants, learn from leading tech and finance experts, and enjoy a fun, immersive experience while discovering how to build innovative solutions and break into tech."
+    description:
+      "Attend the Abeokuta FinHack event to confirm your hackathon registration, gain insights into the challenge, and explore the Fintech space. You'll also have the chance to network with fellow participants, learn from leading tech and finance experts, and enjoy a fun, immersive experience while discovering how to build innovative solutions and break into tech.",
   },
 ];

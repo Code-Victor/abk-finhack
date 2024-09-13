@@ -37,6 +37,10 @@ const { title } = Astro.props;
   :root {
     --navbar-height: 62px;
   }
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--navbar-height);
+  }
   html.lenis,
   html.lenis body {
     height: auto;

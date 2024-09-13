@@ -20,8 +20,8 @@ import { links } from "@/data";
     >
       {
         links.map((link) => (
-          <Button size="sm" variant="ghost-light">
-            {link}
+          <Button  as="a" href={link.href} size="sm" variant="ghost-light">
+            {link.label}
           </Button>
         ))
       }
