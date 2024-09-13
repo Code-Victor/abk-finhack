@@ -1,0 +1,29 @@
+---
+import { guidelines } from "@/data";
+import { Image } from "astro:assets";
+---
+
+<section id="prizes" class="relative bg-[#020323] py-16 md:py-20 px-4">
+  <div class="max-w-6xl mx-auto space-y-6 md:space-y-10">
+    <div class="grid gap-1.5 md:gap-2.5">
+      <h2 class="font-adoha text-3xl md:text-[40px] text-white">
+        Registration <span class="text-[#AACF1D]">Guidelines</span>
+      </h2>
+      <p class="text-sm md:text-base text-white max-w-[735px]">
+        Follow these steps to complete your registration smoothly and ensure
+        your spot at the event. This guideline will walk you through the
+        process, from filling out your details to receiving confirmation. Make
+        sure to double-check all information for accuracy.
+      </p>
+    </div>
+    <div class="flex flex-wrap justify-center gap-4">
+    {guidelines.map(({title,image,description})=>(
+        <div class="rounded-lg p-6 bg-[#000234] flex-1 min-w-[280px] max-w-[360px] flex flex-col gap-4 mt-4">
+            <Image src={image} alt={title} class="w-12 h-auto" />
+            <h3 class="font-semibold text-white">{title}</h3>
+            <p class="text-xs md:text-sm text-[#BDBDBD]">{description}</p>
+        </div>
+    ))}
+    </div>
+  </div>
+</section>

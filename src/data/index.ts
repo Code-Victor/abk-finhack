@@ -15,6 +15,11 @@ import BronzeTrophy from "../assets/images/bronze-trophy.png";
 import GoldConfetti from "../assets/images/gold-confetti.png";
 import SilverConfetti from "../assets/images/silver-confetti.png";
 import BronzeConfetti from "../assets/images/bronze-confetti.png";
+// Guidelines
+import Guideline1 from "../assets/images/guideline-1.png";
+import Guideline2 from "../assets/images/guideline-2.png";
+import Guideline3 from "../assets/images/guideline-3.png";
+import Guideline4 from "../assets/images/guideline-4.png";
 
 export const links = [
   "About",
@@ -195,3 +200,28 @@ export const prizes = {
     gradient: "116.99deg, #A56229 0.78%, #4D2A0B 100%",
   },
 };
+
+export const guidelines = [
+  {
+    image: Guideline1,
+    title: "Review the challenge and terms before applying.",
+    description:
+      "Before registering, carefully review the challenge details, including the problem statement, eligibility criteria, terms and conditions, and hackathon structure.",
+  },
+  {
+    image: Guideline2,
+    title: "Register for Abeokuta FinHack",
+    description:
+      "You can register as a team or an individual. If you have a team, register for the event and the hackathon together. If not, we’ll help you find like-minded individuals at the event. Once you’ve assembled your team, you can register for the hackathon together.",
+  },
+  {
+    image: Guideline3,
+    title: "Explore Payaza’s APIs for inspiration",
+    description:"Gain access to Payaza’s robust set of tools and capabilities that can be seamlessly integrated into your proposed applications"
+  },
+  {
+    image: Guideline4,
+    title: "Attend the Abeokuta FinHack event",
+    description: "Attend the Abeokuta FinHack event to confirm your hackathon registration, gain insights into the challenge, and explore the Fintech space. You'll also have the chance to network with fellow participants, learn from leading tech and finance experts, and enjoy a fun, immersive experience while discovering how to build innovative solutions and break into tech."
+  },
+];

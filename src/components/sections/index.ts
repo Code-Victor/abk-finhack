@@ -9,3 +9,5 @@ export { Timeline } from "./timeline";
 export { Judges } from "./judge";
 export { Challenge } from "./challenge";
 export { Prizes } from "./prizes";
+export { Guidelines } from "./guidelines";
+
