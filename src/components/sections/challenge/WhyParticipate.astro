@@ -1,0 +1,93 @@
+---
+import { whyParticipate } from "@/data";
+import { Image } from "astro:assets";
+---
+
+<div class="space-y-6 md:space-y-10">
+  <div class="space-y-4 md:space-y-6">
+    <h2 class="font-adoha text-xl md:text-[32px] md:leading-[39.84px]">
+      Why <span class="text-[#AACF1D]">Participate</span> ?
+    </h2>
+    <p class="text-[#4F4F4F] max-w-[735px]">
+      Gain valuable experience and enhance your problem-solving skills by
+      participating in real-world challenges. Whether you're a beginner or an
+      expert, this event offers a unique chance to apply your knowledge in a
+      collaborative environment.
+    </p>
+  </div>
+  <div class="grid md:grid-cols-2 gap-6 items-center">
+    <div class="flex flex-col gap-4">
+      {
+        whyParticipate.map(({ title, description }, i) => {
+          const isActive = i === 0 ? "true" : "false";
+          return (
+            <button
+              data-title={title}
+              data-active={isActive}
+              class="why-participate-button transition-all active:scale-[98%] duration-300 flex flex-col gap-2.5 px-6 text-left py-2 items-start border-l-[3px] border-[--border-color] data-[active='true']:bg-[#020459] [--text-color:#4F4F4F] [--border-color:#828282] data-[active='true']:[--text-color:#fff] data-[active='true']:[--border-color:#AACF1D]  rounded-lg"
+            >
+              <h3 class="font-adoha text-[--border-color] text-xl">{title}</h3>
+              <p class="text-[--text-color] text-sm lg:text-base">
+                {description}
+              </p>
+            </button>
+          );
+        })
+      }
+    </div>
+    <div class="grid">
+      {
+        whyParticipate.map(({ title, image }, i) => {
+          const isActive = i === 0 ? "true" : "false";
+
+          return (
+            <Image
+              src={image}
+              data-title={title}
+              data-active={isActive}
+              alt={"Why Participate: " + title}
+              class="why-participate-image col-start-1 row-start-1 w-full transition-all ease-out duration-300 data-[active='true']:opacity-100 data-[active='false']:opacity-0"
+              data-active={i === 0 ? "true" : "false"}
+            />
+          );
+        })
+      }
+    </div>
+  </div>
+</div>
+<script>
+  const DURATION = 3000;
+  const buttons = document.querySelectorAll(
+    ".why-participate-button",
+  ) as NodeListOf<HTMLButtonElement>;
+  const images = document.querySelectorAll(
+    ".why-participate-image",
+  ) as NodeListOf<HTMLImageElement>;
+  function addOnClick() {
+    if (buttons.length === 0 || images.length === 0) return;
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        buttons.forEach((btn) => (btn.dataset.active = "false"));
+        button.dataset.active = "true";
+        images.forEach((img) => {
+          img.dataset.active = "false";
+          if (img.dataset.title === button.dataset.title) {
+            img.dataset.active = "true";
+          }
+        });
+      });
+    });
+  }
+  function autoPlay() {
+    let i = 0;
+    setInterval(() => {
+      buttons[i].click();
+      i = i === buttons.length - 1 ? 0 : i + 1;
+    }, DURATION);
+  }
+  function init() {
+    addOnClick();
+    autoPlay();
+  }
+  init();
+</script>
