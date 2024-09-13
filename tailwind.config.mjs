@@ -9,7 +9,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        "dm-sans": ["'DM Sans'", ...defaultTheme.fontFamily.sans],
+        "dm-sans": ["'DM Sans Variable'", ...defaultTheme.fontFamily.sans],
         adoha: ["Adoha", ...defaultTheme.fontFamily.sans],
       },
       animation: {

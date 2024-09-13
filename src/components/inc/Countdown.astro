@@ -52,15 +52,26 @@ const timeAway = {
   // Countdown logic
 
   function countDown() {
-    const secondsContainer = document.querySelector("[data-time-segment=seconds] span");
-    const minutesContainer = document.querySelector("[data-time-segment=minutes] span");
-    const hoursContainer = document.querySelector("[data-time-segment=hours] span");
-    const daysContainer = document.querySelector("[data-time-segment=days] span");
-    
-    if (!(secondsContainer && minutesContainer && hoursContainer && daysContainer)) return;
+    const secondsContainer = document.querySelector(
+      "[data-time-segment=seconds] span",
+    );
+    const minutesContainer = document.querySelector(
+      "[data-time-segment=minutes] span",
+    );
+    const hoursContainer = document.querySelector(
+      "[data-time-segment=hours] span",
+    );
+    const daysContainer = document.querySelector(
+      "[data-time-segment=days] span",
+    );
+
+    if (
+      !(secondsContainer && minutesContainer && hoursContainer && daysContainer)
+    )
+      return;
     setInterval(() => {
       const futureDate = new Date("2024-10-05T12:00:00Z").getTime();
-      
+
       const currentDate = new Date().getTime();
       const timeLeft = futureDate - currentDate;
       const timeAway = {
@@ -75,7 +86,6 @@ const timeAway = {
       minutesContainer.textContent = String(timeAway.minutes);
       hoursContainer.textContent = String(timeAway.hours);
       daysContainer.textContent = String(timeAway.days);
-
     }, 1000);
   }
   countDown();

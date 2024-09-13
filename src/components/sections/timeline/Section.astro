@@ -6,19 +6,21 @@ import Line from "./Line.astro";
 
 <section id="faq" class="relative bg-white text-[#010225]">
   <div class="relative z-[1] max-w-6xl mx-auto py-16 md:py-20 px-4 space-y-10">
-    <div class="flex flex-col gap-2.5 justify-center items-center">
+    <div class="flex flex-col gap-1.5 md:gap-2.5 justify-center items-center">
       <h2
-        class="font-adoha text-center text-2xl md:text-[44px] md:leading-[66px]"
+        class="font-adoha text-center text-3xl md:text-[44px] md:leading-[66px]"
       >
         <span class="text-[#aacf1d]">Hackathon</span> Timeline
       </h2>
-      <p class="text-[#4F4F4F] font-medium max-w-[735px] text-center">
+      <p
+        class="text-[#4F4F4F] font-medium max-w-[735px] text-center text-sm md:text-base"
+      >
         Explore key milestones and deadlines for the Hackathon, including
         registration dates, submission deadlines, and event schedules to ensure
         you're prepared and on track throughout the competition.
       </p>
     </div>
-    <div class="mt-8 grid grid-cols-[60px_1fr] md:hidden">
+    <div class="mt-8 grid grid-cols-[36px_1fr] md:hidden">
       {
         timeline.map((d, i) => {
           const isFirst = i === 0;

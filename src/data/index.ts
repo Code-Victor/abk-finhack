@@ -68,7 +68,7 @@ export const timeline = [
     registrationRelated: true,
   },
   {
-    date: "Saturday, October 5, 2024,",
+    date: "Saturday, October 5, 2024",
     time: "10 am - 2 pm",
     description:
       "Abeokuta FinHack Event Kick off the challenge and set the stage for innovation. This day is dedicated to welcoming participants, fostering learning, networking, and providing an overview of the hackathon's problem space and rules. Individuals without a team will receive support in forming one.",
