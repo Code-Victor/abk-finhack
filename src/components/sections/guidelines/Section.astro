@@ -18,7 +18,7 @@ import { Image } from "astro:assets";
     </div>
     <div class="flex flex-wrap justify-center gap-4">
     {guidelines.map(({title,image,description})=>(
-        <div class="rounded-lg p-6 bg-[#000234] flex-1 min-w-[280px] max-w-[360px] flex flex-col gap-4 mt-4">
+        <div class="rounded-lg p-6 bg-[#000234] flex-1 min-w-[240px] max-w-[360px] flex flex-col gap-4 mt-4">
             <Image src={image} alt={title} class="w-12 h-auto" />
             <h3 class="font-semibold text-white">{title}</h3>
             <p class="text-xs md:text-sm text-[#BDBDBD]">{description}</p>
