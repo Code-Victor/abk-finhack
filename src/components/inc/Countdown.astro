@@ -4,48 +4,79 @@ const currentDate = new Date().getTime();
 
 const timeLeft = futureDate - currentDate;
 const timeAway = {
-  days: Math.floor(timeLeft / (1000 * 60 * 60 * 24)),
-  hours: Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-  minutes: Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60)),
-  seconds: Math.floor((timeLeft % (1000 * 60)) / 1000),
+  days: { digit: Math.floor(timeLeft / (1000 * 60 * 60 * 24)), label: "Days" },
+  hours: {
+    digit: Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+    label: "Hours",
+  },
+  minutes: {
+    digit: Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60)),
+    label: "Mins",
+  },
+  seconds: {
+    digit: Math.floor((timeLeft % (1000 * 60)) / 1000),
+    label: "Secs",
+  },
 };
 ---
 
-<div class="flex gap-2 justify-center items-center">
-  <div
-    class="bg-[#0C0D2C] w-20 rounded-xl py-2 px-4 flex flex-col items-center gap-1"
-  >
-    <span class="text-[40px] leading-[52px] text-white font-medium"
-      >{timeAway.days}</span
-    >
-    <span class="text-[#AFAFAF] font-medium text-center">Days</span>
-  </div>
-  <span class="text-[40px] text-white font-medium text-center">:</span>
-  <div
-    class="bg-[#0C0D2C] w-20 rounded-xl py-2 px-4 flex flex-col items-center gap-1"
-  >
-    <span class="text-[40px] leading-[52px] text-white font-medium"
-      >{timeAway.hours}</span
-    >
-    <span class="text-[#AFAFAF] font-medium text-center"> Hours</span>
-  </div>
-  <span class="text-[40px] text-white font-medium text-ce nter">:</span>
-  <div
-    class="bg-[#0C0D2C] w-20 rounded-xl py-2 px-4 flex flex-col items-center gap-1"
-  >
-    <span class="text-[40px] leading-[52px] text-white font-medium"
-      >{timeAway.minutes}</span
-    >
-    <span class="text-[#AFAFAF] font-medium text-center">Mins</span>
-  </div>
-  <span class="text-[40px] text-white font-medium text-center">:</span>
-  <div
-    class="bg-[#0C0D2C] w-20 rounded-xl py-2 px-4 flex flex-col items-center gap-1"
-  >
-    <span class="text-[40px] leading-[52px] text-white font-medium"
-      >{timeAway.seconds}</span
-    >
-    <span class="text-[#AFAFAF] font-medium text-center">Secs</span>
-  </div>
+<div class="flex gap-2 justify-center items-center px-4">
+  {
+    (Object.keys(timeAway) as (keyof typeof timeAway)[]).map((key) => {
+      const isSec = key === "seconds";
+      return (
+        <>
+          <div
+            data-time-segment={key}
+            class="bg-[#0C0D2C] w-[54px] md:w-20 rounded-xl py-2 px-4 flex flex-col items-center gap-1"
+          >
+            <span class="text-2xl  md:text-3xl lg:text-[40px] lg:leading-[52px] text-white font-medium">
+              {timeAway[key].digit}
+            </span>
+            <span class="text-[#AFAFAF] text-xs md:text-base font-medium text-center">
+              {timeAway[key].label}
+            </span>
+          </div>
+          {isSec ? null : (
+            <span class="text-[#AFAFAF] text-2xl md:text-3xl lg:text-[40px] font-medium">
+              :
+            </span>
+          )}
+        </>
+      );
+    })
+  }
 </div>
----
+
+<script>
+  // Countdown logic
+
+  function countDown() {
+    const secondsContainer = document.querySelector("[data-time-segment=seconds] span");
+    const minutesContainer = document.querySelector("[data-time-segment=minutes] span");
+    const hoursContainer = document.querySelector("[data-time-segment=hours] span");
+    const daysContainer = document.querySelector("[data-time-segment=days] span");
+    
+    if (!(secondsContainer && minutesContainer && hoursContainer && daysContainer)) return;
+    setInterval(() => {
+      const futureDate = new Date("2024-10-05T12:00:00Z").getTime();
+      
+      const currentDate = new Date().getTime();
+      const timeLeft = futureDate - currentDate;
+      const timeAway = {
+        days: Math.floor(timeLeft / (1000 * 60 * 60 * 24)),
+        hours: Math.floor(
+          (timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+        ),
+        minutes: Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60)),
+        seconds: Math.floor((timeLeft % (1000 * 60)) / 1000),
+      };
+      secondsContainer.textContent = String(timeAway.seconds);
+      minutesContainer.textContent = String(timeAway.minutes);
+      hoursContainer.textContent = String(timeAway.hours);
+      daysContainer.textContent = String(timeAway.days);
+
+    }, 1000);
+  }
+  countDown();
+</script>
