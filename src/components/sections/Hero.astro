@@ -1,4 +1,5 @@
 ---
+import { REGISTRATION_LINK } from "@/consts";
 import { AbkFinHackLogo, Button } from "../base";
 import { AuroraBackground, Countdown } from "@/components/inc";
 import { Icon } from "astro-icon/components";
@@ -8,17 +9,17 @@ import { Image } from "astro:assets";
 ---
 
 <AuroraBackground
-  class="pt-[calc(var(--navbar-height)_+_28px)] w-full relative z-0 grid place-items-center min-h-screen xl:max-h-[1024px] xl:min-h-min mx-auto"
+  class="pt-[calc(var(--navbar-height)_+_36px)] w-full relative z-0 grid place-items-center min-h-[100vh!important] xl:max-h-[1024px] xl:min-h-min mx-auto"
   showRadialGradient
 >
   <div class="grid gap-6 xl:gap-8">
-    <AbkFinHackLogo class="w-[80%] max-w-[480px] mx-auto" />
+    <AbkFinHackLogo class="w-[80%] md:w-full max-w-[520px] mx-auto" />
     <h1
       class="font-medium text-lg md:text-2xl lg:text-3xl text-white text-center font-dm-sans"
     >
       Hack The Crowd, Fund The Future
     </h1>
-    <Button class="justify-self-center">
+    <Button as="a" href={REGISTRATION_LINK} class="justify-self-center">
       <Icon name="ri:sparkling-line" class="text-[#333333]" />
       Register Now</Button
     >
@@ -27,11 +28,11 @@ import { Image } from "astro:assets";
   <Image
     src={Abstract1}
     alt="abstract"
-    class="absolute bottom-0 left-0 mix-blend-overlay object-cover z-[-1]"
+    class="absolute bottom-0 left-0 mix-blend-color-dodge object-cover z-[-1]"
   />
   <Image
     src={Abstract2}
     alt="abstract"
-    class="absolute bottom-0 right-0 mix-blend-overlay object-cover z-[-1]"
+    class="absolute bottom-0 right-0 mix-blend-color-dodge object-cover z-[-1]"
   />
 </AuroraBackground>

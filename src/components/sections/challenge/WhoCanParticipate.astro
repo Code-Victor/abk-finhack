@@ -18,7 +18,7 @@ import { whoCanParticipate } from "@/data";
   <div class="flex flex-wrap justify-center gap-6">
     {
       whoCanParticipate.map(({ title, description, image }) => (
-        <div class="group hover:bg-[#F3F3F7] transition-all duration-300 flex-1 min-w-[300px] max-w-[360px] flex flex-col rounded-[28px] gap-4 items-start p-4">
+        <div class="group bg-[#F3F3F7] hover:bg-[#e6e6f7] transition-all duration-300 flex-1 min-w-[300px] max-w-[360px] flex flex-col rounded-[28px] gap-4 items-start p-4">
           <Image src={image} alt={title} class="rounded-xl overflow-hidden" />
           <div class="flex flex-col gap-1 md:gap-2.5">
             <h3 class="font-bold text-lg md:text-xl">{title}</h3>

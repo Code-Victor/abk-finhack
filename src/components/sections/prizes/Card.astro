@@ -6,8 +6,7 @@ interface Props {
   position: keyof typeof prizes;
 }
 const { position } = Astro.props;
-const { title, description, confetti, gradient, prize, trophy } =
-  prizes[position];
+const { title, rewards, confetti, gradient, prize, trophy } = prizes[position];
 ---
 
 <div
@@ -38,7 +37,9 @@ const { title, description, confetti, gradient, prize, trophy } =
       <p class="text-[#E0E0E0]">{title}</p>
       <h3 class="text-[40px] gradient-text max-w-[194px]">{prize}</h3>
     </div>
-    <p class="text-[#fff] text-xs">{description}</p>
+    <ul class="list-disc">
+      {rewards.map((reward) => <li class="text-[#fff] text-xs">{reward}</li>)}
+    </ul>
   </div>
 </div>
 <style>

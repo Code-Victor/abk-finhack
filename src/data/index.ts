@@ -182,8 +182,11 @@ export const prizes = {
     confetti: GoldConfetti,
     title: "First Place",
     prize: "₦800K",
-    description:
-      "N800,000 to be shared equally among all team members Publicity through TRC-BCN and Payaza’s communication channels Possible internship with the Payaza team",
+    rewards: [
+      "₦800,000 to be shared equally among all team members",
+      "Publicity through TRC-BCN and Payaza’s communication channels",
+"Possible internship with the Payaza team"
+    ],
     gradient: "116.99deg, #CDAE6F 0.78%, #534324 100%",
   },
   2: {
@@ -191,8 +194,11 @@ export const prizes = {
     confetti: SilverConfetti,
     title: "Second Place",
     prize: "₦500K",
-    description:
-      "N500,000 to be shared equally among all team members Publicity through TRC-BCN and Payaza’s communication channels Possible internship with the Payaza team",
+    rewards: [
+      "₦500,000 to be shared equally among all team members",
+      "Publicity through TRC-BCN and Payaza’s communication channels",
+  "Possible internship with the Payaza team"
+    ],
     gradient: "116.99deg, #BFBEC3 0.78%, #464646 100%",
   },
   3: {
@@ -200,8 +206,12 @@ export const prizes = {
     confetti: BronzeConfetti,
     title: "Third Place",
     prize: "₦300K",
-    description:
-      "N300,000 to be shared equally among all team members Publicity through TRC-BCN and Payaza’s communication channels Possible internship with the Payaza team",
+    rewards: [
+      "₦  300,000 to be shared equally among all team members",
+      "Publicity through TRC-BCN and Payaza’s communication channels",
+  "Possible internship with the Payaza team"
+    ],
+      
     gradient: "116.99deg, #A56229 0.78%, #4D2A0B 100%",
   },
 };
