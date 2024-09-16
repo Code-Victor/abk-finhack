@@ -1,0 +1,145 @@
+---
+import { cn } from "@/utils";
+
+interface Props {
+  width?: number;
+  height?: number;
+  x?: number;
+  y?: number;
+  strokeDasharray?: any;
+  numSquares?: number;
+  class?: string;
+  maxOpacity?: number;
+  duration?: number;
+  repeatDelay?: number;
+}
+
+const {
+  width = 40,
+  height = 40,
+  x = -1,
+  y = -1,
+  strokeDasharray = 0,
+  numSquares = 200,
+  class:className,
+  maxOpacity = 0.5,
+  duration = 4,
+  repeatDelay = 2,
+} = Astro.props;
+
+const id = Math.random().toString(36).substr(2, 9);
+
+function getPos(containerWidth: number, containerHeight: number) {
+  return [
+    Math.floor((Math.random() * containerWidth) / width),
+    Math.floor((Math.random() * containerHeight) / height),
+  ];
+}
+
+function generateSquares(
+  count: number,
+  containerWidth: number,
+  containerHeight: number,
+) {
+  return Array.from({ length: count }, (_, i) => ({
+    id: i,
+    pos: getPos(containerWidth, containerHeight),
+  }));
+}
+---
+
+<div id={`grid-pattern-${id}`} class={cn("relative w-full h-full", className)}>
+  <svg
+    aria-hidden="true"
+    class="pointer-events-none absolute inset-0 h-full w-full text-white/20 stroke-white/5 [--circle:280px] md:[--circle:480px] lg:[--circle:600px] [mask-image:radial-gradient(var(--circle)_circle_at_center,white,transparent)]"
+  >
+    <defs>
+      <pattern
+        id={id}
+        width={width}
+        height={height}
+        patternUnits="userSpaceOnUse"
+        x={x}
+        y={y}
+      >
+        <path
+          d={`M.5 ${height}V.5H${width}`}
+          fill="none"
+          stroke-dasharray={strokeDasharray}></path>
+      </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill={`url(#${id})`}></rect>
+    <svg x={x} y={y} class="overflow-visible squares-container">
+      <!-- Squares will be dynamically added here -->
+    </svg>
+  </svg>
+  <slot />
+</div>
+
+<script define:vars={{ id, width, height, numSquares, maxOpacity, duration }}>
+  const container = document.getElementById(`grid-pattern-${id}`);
+  const squaresContainer = container.querySelector(".squares-container");
+  let squares = [];
+
+  function getPos() {
+    return [
+      Math.floor((Math.random() * container.clientWidth) / width),
+      Math.floor((Math.random() * container.clientHeight) / height),
+    ];
+  }
+
+  function generateSquares(count) {
+    return Array.from({ length: count }, (_, i) => ({
+      id: i,
+      pos: getPos(),
+    }));
+  }
+
+  function createSquare(square) {
+    const [x, y] = square.pos;
+    const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+    rect.setAttribute("width", width - 1);
+    rect.setAttribute("height", height - 1);
+    rect.setAttribute("x", x * width + 1);
+    rect.setAttribute("y", y * height + 1);
+    rect.setAttribute("fill", "currentColor");
+    rect.setAttribute("stroke-width", "0");
+    rect.style.opacity = "0";
+    return rect;
+  }
+
+  function animateSquare(square, index) {
+    const rect = createSquare(square);
+    squaresContainer.appendChild(rect);
+
+    setTimeout(() => {
+      rect.style.transition = `opacity ${duration}s ease-in-out`;
+      rect.style.opacity = maxOpacity;
+
+      setTimeout(() => {
+        rect.style.opacity = "0";
+        setTimeout(() => {
+          square.pos = getPos();
+          const newRect = createSquare(square);
+          squaresContainer.replaceChild(newRect, rect);
+          animateSquare(square, index);
+        }, duration * 1000);
+      }, duration * 1000);
+    }, index * 100);
+  }
+
+  function initializeSquares() {
+    squares = generateSquares(numSquares);
+    // take 20% of squares and animate them
+    squares.slice(0, Math.floor(numSquares / 10)).forEach((square, index) => animateSquare(square, index));
+  }
+
+  // Initialize on load
+  initializeSquares();
+
+  // Reinitialize on resize
+  window.addEventListener("resize", () => {
+    squaresContainer.innerHTML = "";
+    initializeSquares();
+  });
+</script>
