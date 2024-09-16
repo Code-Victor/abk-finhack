@@ -123,7 +123,7 @@ import { REGISTRATION_LINK } from "@/consts";
     display: block;
     width: var(--size);
     height: var(--thinkness);
-    border-radius:var(--thinkness);
+    border-radius: var(--thinkness);
     position: relative;
     background-color: #ffffff;
     transition: background-color 0.35s 0s ease-out;
@@ -135,7 +135,7 @@ import { REGISTRATION_LINK } from "@/consts";
     position: absolute;
     width: calc(var(--size) / 2);
     height: var(--thinkness);
-    border-radius:var(--thinkness);
+    border-radius: var(--thinkness);
     background-color: #ffffff;
     transition:
       top 0.2s 0.4s ease-out,
@@ -155,12 +155,12 @@ import { REGISTRATION_LINK } from "@/consts";
     right: calc(var(--size) / 2);
   }
 
-  .mobile-nav-btn.active .hamburger-icon span {
+  .mobile-nav-btn[aria-expanded="true"] .hamburger-icon span {
     background-color: transparent;
   }
 
-  .mobile-nav-btn.active .hamburger-icon span::before,
-  .mobile-nav-btn.active .hamburger-icon span::after {
+  .mobile-nav-btn[aria-expanded="true"] .hamburger-icon span::before,
+  .mobile-nav-btn[aria-expanded="true"] .hamburger-icon span::after {
     top: 0;
     width: var(--size);
     transition:
@@ -171,12 +171,12 @@ import { REGISTRATION_LINK } from "@/consts";
       transform 0.2s 0.4s ease-out;
   }
 
-  .mobile-nav-btn.active .hamburger-icon span::before {
+  .mobile-nav-btn[aria-expanded="true"] .hamburger-icon span::before {
     left: 0;
     transform: rotate3d(0, 0, 1, 45deg);
   }
 
-  .mobile-nav-btn.active .hamburger-icon span::after {
+  .mobile-nav-btn[aria-expanded="true"] .hamburger-icon span::after {
     right: 0;
     transform: rotate3d(0, 0, 1, -45deg);
   }
@@ -191,11 +191,16 @@ import { REGISTRATION_LINK } from "@/consts";
     button.addEventListener("click", () => {
       const expanded = button.getAttribute("aria-expanded") === "true";
       button.setAttribute("aria-expanded", `${!expanded}`);
-      button.classList.toggle("active");
       expanded
         ? button.setAttribute("aria-label", "Open menu")
         : button.setAttribute("aria-label", "Close menu");
       mobileNav.setAttribute("data-open", `${!expanded}`);
+    });
+    Array.from(mobileNav.querySelectorAll("a")).map((link) => {
+      link.addEventListener("click", () => {
+        button.setAttribute("aria-expanded", "false");
+        mobileNav.setAttribute("data-open", "false");
+      });
     });
   }
   function main() {
