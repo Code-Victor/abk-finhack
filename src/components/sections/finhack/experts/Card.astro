@@ -1,0 +1,110 @@
+---
+import { Image } from "astro:assets";
+import { Button } from "@/components/base";
+import { Icon } from "astro-icon/components";
+import type { Expert } from "@/data";
+
+interface Props extends Expert {}
+
+const {
+  id,
+  name,
+  title,
+  image,
+  role,
+  socials: { linkedin },
+} = Astro.props;
+---
+
+<div class="judge-card flex flex-col gap-2 max-w-sm mx-auto">
+  <div class="relative overflow-hidden">
+    <div class="rounded-xl overflow-hidden expert-gradient">
+      <Image
+        src={image}
+        alt="avatar"
+        width={262}
+        height={293}
+        class="aspect-[0.8941979522] object-cover w-full"
+      />
+    </div>
+    <div class="absolute bottom-4 left-4 flex gap-2 items-center">
+      <Button
+        as="a"
+        icon
+        size="sm"
+        rounded="default"
+        variant="lemon"
+        aria-label="LinkedIn account"
+        href={linkedin}
+        target="_blank"
+        class="actions text-[#FFFFFF] [--delay:0]"
+      >
+        <Icon name="ri:linkedin-box-fill" />
+      </Button>
+      <Button
+        data-id={`expert-${id}`}
+        icon
+        size="sm"
+        rounded="default"
+        variant="lemon"
+        aria-label="Read expert bio"
+        class="expert-info-button actions text-[#FFFFFF] [--delay:1]"
+      >
+        <Icon name="ri:information-line" />
+      </Button>
+    </div>
+  </div>
+  <div class="grid gap-1">
+    <h3 class="font-semibold text-sm md:text-xl">{name}</h3>
+    <p class="text-xs md:text-sm italic text-[#6E6E6E] font-medium">
+      {title}
+    </p>
+    <p class="text-xs md:text-base italic text-[#597001] font-bold">
+      {role}
+    </p>
+  </div>
+</div>
+
+<style>
+
+  .judge-card {
+  }
+  .judge-card .actions {
+    opacity: 0;
+    transform: translateY(calc(100% + 16px));
+    transition: all 250ms ease-in-out;
+    transition-delay: calc(125ms * var(--delay));
+  }
+  @media (pointer: coarse) {
+    .judge-card .actions {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .judge-card:hover .actions {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+<script>
+  import { experts } from "@/data";
+  import { activeExpertStore } from "@/stores";
+  const infoButtons = Array.from(
+    document.querySelectorAll(".expert-info-button"),
+  );
+  infoButtons.forEach((button) => {
+    button.addEventListener("click", (ev) => {
+      console.log("Clicked");
+      if (!(ev.currentTarget instanceof HTMLButtonElement)) {
+        return;
+      }
+      const id = Number((ev.currentTarget?.dataset.id ?? "").split("-")[1]);
+      const selectedExpert = experts.find((expert) => expert.id === id);
+      console.log("New Expert", selectedExpert);
+      if (!selectedExpert) {
+        return;
+      }
+      activeExpertStore.set(selectedExpert);
+    });
+  });
+</script>

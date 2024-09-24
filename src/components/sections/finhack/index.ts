@@ -5,7 +5,7 @@ export { default as Faq } from "./Faq.astro";
 export { default as About } from "./About.astro";
 export { PoweredBy } from "./poweredBy";
 export { Timeline } from "./timeline";
-export { Judges } from "./judge";
+export { Experts } from "./experts";
 export { Challenge } from "./challenge";
 export { Prizes } from "./prizes";
 export { Guidelines } from "./guidelines";

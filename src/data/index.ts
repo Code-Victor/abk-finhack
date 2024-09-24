@@ -20,14 +20,21 @@ import Guideline1 from "../assets/images/guideline-1.png";
 import Guideline2 from "../assets/images/guideline-2.png";
 import Guideline3 from "../assets/images/guideline-3.png";
 import Guideline4 from "../assets/images/guideline-4.png";
+// Experts
+import DamilarePaul from "../assets/images/experts/damilare-paul.png";
+import IyanuGabriel from "../assets/images/experts/iyanu-gabriel.png";
+import OluwaseunHamzat from "../assets/images/experts/oluwaseun-hamzat.png";
+import OluwaseyiOgidiolu from "../assets/images/experts/oluwaseyi-ogidiolu.png";
+import DeboOmololu from "../assets/images/experts/debo-omololu.png";
+import OlalekanAkinsande from "../assets/images/experts/olalekan-akinsande.png";
 
 export const links = [
-  { label: "About", href  : "#about" },
-  { label: "Challenge", href  : "#challenge" },
-  { label: "Prizes", href : "#prizes" },
-  { label: "Guidelines", href : "#guidelines" },
-  { label: "Judges", href : "#judges" },
-  { label: "FAQ", href  : "#faq" },
+  { label: "About", href: "#about" },
+  { label: "Challenge", href: "#challenge" },
+  { label: "Prizes", href: "#prizes" },
+  { label: "Guidelines", href: "#guidelines" },
+  { label: "Experts", href: "#experts" },
+  { label: "FAQ", href: "#faq" },
 ];
 export const socialLinks = [
   {
@@ -185,7 +192,7 @@ export const prizes = {
     rewards: [
       "₦800,000 to be shared equally among all team members",
       "Publicity through TRC-BCN and Payaza’s communication channels",
-"Possible internship with the Payaza team"
+      "Possible internship with the Payaza team",
     ],
     gradient: "116.99deg, #CDAE6F 0.78%, #534324 100%",
   },
@@ -197,7 +204,7 @@ export const prizes = {
     rewards: [
       "₦500,000 to be shared equally among all team members",
       "Publicity through TRC-BCN and Payaza’s communication channels",
-  "Possible internship with the Payaza team"
+      "Possible internship with the Payaza team",
     ],
     gradient: "116.99deg, #BFBEC3 0.78%, #464646 100%",
   },
@@ -209,9 +216,9 @@ export const prizes = {
     rewards: [
       "₦  300,000 to be shared equally among all team members",
       "Publicity through TRC-BCN and Payaza’s communication channels",
-  "Possible internship with the Payaza team"
+      "Possible internship with the Payaza team",
     ],
-      
+
     gradient: "116.99deg, #A56229 0.78%, #4D2A0B 100%",
   },
 };
@@ -242,3 +249,75 @@ export const guidelines = [
       "Attend the Abeokuta FinHack event to confirm your hackathon registration, gain insights into the challenge, and explore the Fintech space. You'll also have the chance to network with fellow participants, learn from leading tech and finance experts, and enjoy a fun, immersive experience while discovering how to build innovative solutions and break into tech.",
   },
 ];
+
+export const experts = [
+  {
+    id: 0,
+    name: "Debo Omololu",
+    image: DeboOmololu,
+    title: "Chief Executive Officer and Head of Strategy, GFA",
+    role: "Keynote Speaker",
+    socials: {
+      linkedin: "https://www.linkedin.com/in/bolu-oluwagbesan-5080b188/",
+    },
+    bio: "Debo Omololu is the co-founder and CEO of GFA Technologies. He holds a BSc in Accounting from the University of Ilorin, a Diploma in Entrepreneurship from Harvard University, a Diploma in Management from the University of Liverpool, and an Associate Chartered Accountant certification from ICAN. He has also completed the Venture in Management Programme at Lagos Business School.\nAt GFA, Debo has developed the Digital Innovation Management Platform (DIMP) to upskill individuals and entrepreneurs and provide essential tools for effective business management. Previously, Debo served as an advisor in corporate development at KaiOS, working to provide internet access to over half of the world's population. As a partner at Afriscaper, he helped deliver market reports on emerging markets, aiding business leaders in decision–making. Debo has spoken at events in over 12 countries as a public speaker on topics related to growth in emerging markets. He also coordinates the Success Entrepreneurs Network, an online community with nearly 1,000 members. Debo's extensive skills include fundraising, market research, business planning, strategic analysis, and educational technology. He is a founding member of the Nigerians in Diaspora Organisation (East China), the African Business Chamber in China (Afbizcham), and a Fellow of the Startup Leadership Programme (SLP).",
+  },
+  {
+    id: 1,
+    name: "Hamzat Oluwaseun",
+    image: OluwaseunHamzat,
+    title: "Technology & Strategy Consultant",
+    role: "Speaker",
+    socials: {
+      linkedin: "https://www.linkedin.com/in/oluwaseun-hamzat-a7416966/",
+    },
+    bio: "Oluwaseun is a technology and strategy consultant dedicated to creating products, programs, partnerships, and ecosystems that open opportunities for young Africans in the digital economy. He recently led growth and outreach at Kibo School, a global online university offering affordable STEM degrees to Africans. Over the past 7 years, he has been passionately involved in nurturing the tech and startup ecosystem across the continent. His work includes impactful projects with international development agencies, global ecosystem leaders, tech communities, and think tanks such as the German Development Corporation (GIZ), AI Commons, and Data Science Nigeria.",
+  },
+  {
+    id: 2,
+    name: "Paul Akolade",
+    image: DamilarePaul,
+    title: "Founder & CEO, Vant",
+    role: "Speaker and Mentor",
+    socials: {
+      linkedin: "https://www.linkedin.com/in/paulakolade/",
+    },
+    bio: "Damilare Paul Akolade is a seasoned entrepreneur, venture capital advisor, and business operations expert with over 10 years of experience spanning fintech, e-commerce, and digital innovation. As the founder of Vant, a fast-growing fintech startup supported by Orange Corners Nigeria, Fate Foundation, Microsoft, Lagos Innovates and AWS Build. Paul is committed to driving financial inclusion and empowering individuals and businesses through cutting-edge payment solutions.\nThroughout his career, Paul has demonstrated a deep passion for building transformative businesses and leading high-performance teams. His expertise spans product development, strategic planning, financial management, business operations and digital marketing. With a proven track record in driving business growth and operational efficiency, Paul has successfully led the development and launch of multiple products in diverse industries, including e-commerce, fintech, and mobility-tech.\nPaul is not only a business leader but also a thought leader and educator. He shares his knowledge and insights through speaking engagements and teaching roles, having instructed over 1,500 participants and spoken at several industry events. His talks focus on the intersection of technology, entrepreneurship, and innovation, offering practical insights on topics such as fintech, digital transformation, and startup growth strategies.\nIn addition to his entrepreneurial endeavors, Paul has held senior leadership positions in several organizations, including Eaglion Global HQ, RuffnTumble, Essenza, Bedmate and BuyASAP Africa, where he played a pivotal role in product management, operations, marketing & sales, and market expansion. His hands-on leadership has contributed to the growth and success of multiple businesses, helping them navigate complex markets and achieve scalable success.\nPaul Akolade’s visionary leadership, coupled with his technical acumen, makes him a sought-after speaker and advisor for businesses looking to harness technology for growth and impact.",
+  },
+  {
+    id: 3,
+    name: "Iyanu Gabriel",
+    image: IyanuGabriel,
+    title: "Product Lead, Stealth Startup",
+    role: "Speaker and Mentor",
+    socials: {
+      linkedin: "https://www.linkedin.com/in/paulakolade/",
+    },
+    bio: "Iyanu Gabriel is a seasoned product leader with over a decade of experience in building innovative digital products across fintech, mobility, and e-commerce. He has successfully led cross-functional teams in the development of solutions that have generated over $15 million in ARR and contributed to raising over $350 million in funding. Currently, Iyanu serves as the Product Lead at a Stealth startup, driving the creation of cutting-edge financial products for the African market. His passion lies in leveraging technology to drive business growth and foster innovation.",
+  },
+
+  {
+    id: 4,
+    name: "Oluwaseyi Ogidiolu",
+    image: OluwaseyiOgidiolu,
+    title: "Technical Advisor, GIZ",
+    role: "Speaker and Mentor",
+    socials: {
+      linkedin: "https://www.linkedin.com/in/oluwaseyi-ogidiolu/",
+    },
+    bio: "Oluwaseyi Christopher Ogidiolu is a Technical Advisor, Digital Innovation and Entrepreneurship with the Digital Transformation Center Nigeria (DTC Nigeria), which is funded by the European Union (EU) and the German Federal Ministry for Economic Co-operation and Development (BMZ) and implemented by Deutsche Gesellschaft fuer Internationale Zusammenarbeit (GIZ) GmbH with a primary focus on Digitalization and Entrepreneurship. The project aims to contribute to the improvement of the capacity of the Nigerian economy to implement digital innovations for growth, through supporting the digital transformation of the economy and society. \nHe holds a A.A, B.Tech, MSc.LT and MBA degrees in sciences, humanities and business management. \nHis professional experience cuts across research and corporate innovation, digital economy, business transformation, project management, organisational development, policy, private and public sector development, ecosystem development, enterprise development, and corporate governance.\nHe has have been involved in over five global partnership development, innovation development, was a research advisor on the Greek Financial Crisis, the creator of the Afripreneur Toolkit, a Project Manager for digital transformation and commercialisation projects, led global consortia project development such as a Precious Metals Buying Platform & konn3ct virtual conferencing App.\nA serving board member of Digital Ecosystem Advisory Group (DEAG), Ogun Tech Community (OTC), member of committees of the Nigerian Institute of Management (Chartered) and a faculty member of the MOE Business School. He served and worked with several committees and teams at both governmental and non-governmental levels.\nHe loves listening to music, travelling, working with people and having fun.",
+  },
+  {
+    id: 5,
+    name: "Olalekan Akinsande",
+    image: OlalekanAkinsande,
+    title: "Data Scientist, Mastercard Foundation",
+    role: "Speaker and Mentor",
+    socials: {
+      linkedin: "https://www.linkedin.com/in/akinsande-olalekan/",
+    },
+    bio: "Olalekan (Lekan) Akinsande is an award-winning data scientist, AI expert, and technology leader with about a decade of experience driving transformative data solutions across sectors such as international development, financial services, education, healthcare, and governance. His career is marked by an impressive track record of delivering innovative analytics and AI-powered projects that generate measurable impact.\nCurrently, as a Data Scientist at the Mastercard Foundation, Lekan leads data and advanced analytics initiatives, focusing on youth employment and financial inclusion programs across Africa and Canada.\nPrior to joining the Mastercard Foundation, Lekan served as the Data Science and Technical Lead at Data Science Nigeria (DSN), where he drove high-impact projects across multiple sectors. Notably, he led the EKO360 Data Warehouse and Analytics Project in partnership with the Bill & Melinda Gates Foundation and the Lagos State Bureau of Statistics, streamlining data collection and improving decision-making processes for the Lagos State Government. His leadership of Africa’s largest AI Bootcamp and his team’s recognition as the only African finalist in the XPRIZE Pandemic Response Challenge further underscore his commitment to advancing AI and data science on the continent\nDuring his time as a Data Scientist at KPMG Nigeria, Lekan worked with the Analytics & Operations practice to develop advanced analytics solutions for clients across different sectors including the financial services and retail sector. In his earlier role as a Business Analyst at Crown Interactive Limited, Lekan delivered key insights through business intelligence dashboards and facilitated improved decision-making for utility companies. He played a pivotal role in enhancing operational efficiency for power utilities in Sub-Saharan Africa by leading the development of a reporting system for Feeder load data and Network Management\nLekan is a certified Artificial Intelligence Engineer (AIE™) and is currently pursuing a Masters of Science (MSc) in Analytics at the Georgia Institute of Technology, USA. His thought leadership is widely recognized, with contributions to peer-reviewed publications and speaking engagements at international conferences, including those organized by UNESCO and the ACM Conference on Economics and Computation\nDriven by a passion for leveraging data and AI to address global challenges, Lekan's work continues to empower organizations, communities, and governments to achieve transformative outcomes through technology.",
+  },
+];
+
+export type Expert = (typeof experts)[number];
