@@ -25,9 +25,9 @@ export function ExpertDrawer() {
                       <img
                         src={$activeExpert?.image.src}
                         alt="avatar"
-                        width={262}
-                        height={293}
-                        className="active-expert-image aspect-[0.8941979522] object-cover w-full"
+                        width={$activeExpert?.image.width}
+                        height={$activeExpert?.image.height}
+                        className="active-expert-image object-cover w-full"
                       />
                     </div>
                   </div>
