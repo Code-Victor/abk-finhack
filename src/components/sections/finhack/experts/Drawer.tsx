@@ -1,14 +1,21 @@
-import { activeExpertStore } from "@/stores";
+import { activeExpertStore, smoothScrollStore } from "@/stores";
 import { useStore } from "@nanostores/react";
 import { Drawer } from "vaul";
 
 export function ExpertDrawer() {
   const $activeExpert = useStore(activeExpertStore);
+  const open = !!$activeExpert;
+  if (open) {
+    smoothScrollStore.set(false);
+  } else {
+    smoothScrollStore.set(true);
+  }
+
   function onClose() {
     activeExpertStore.set(null);
   }
   return (
-    <Drawer.Root open={!!$activeExpert} onOpenChange={onClose}>
+    <Drawer.Root open={open} onOpenChange={onClose}>
       <Drawer.Portal>
         <Drawer.Overlay className="fixed inset-0 bg-black/40" />
         <Drawer.Content className="z-[999] bg-zinc-100 flex flex-col rounded-t-[10px] h-[96%] mt-24 fixed bottom-0 left-0 right-0">
