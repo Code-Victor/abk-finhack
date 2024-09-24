@@ -1,6 +1,5 @@
 ---
 import Card from "./Card.astro";
-import ActiveCard from "./ActiveCard.astro";
 import { experts } from "@/data";
 import { ExpertDrawer } from "./Drawer";
 ---
@@ -22,6 +21,5 @@ import { ExpertDrawer } from "./Drawer";
       {experts.map((expert, index) => <Card {...expert} />)}
     </div>
   </div>
-  <ExpertDrawer client:load/>
-    
+  <ExpertDrawer client:load />
 </section>
