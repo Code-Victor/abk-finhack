@@ -1,7 +1,6 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
-
 /**
  * The function `cn` in TypeScript merges multiple class values using `clsx` and `twMerge`.
  * @param {ClassValue[]} inputs - The `cn` function takes in an array of `ClassValue` inputs. These
@@ -54,10 +53,7 @@ export function screenSize<T>(breakpoints: BreakpointConfig<T>): T | null {
     return breakpoints.md;
   } else if (width >= twBreakpoints.sm && breakpoints.sm) {
     return breakpoints.sm;
-  } else if (breakpoints.default) {
-    return breakpoints.default;
-  }
-
-  // Default case if no matching breakpoint is found
-  return null;
+  } else {
+    return breakpoints.default ?? null;
+  } 
 }

@@ -3,22 +3,35 @@ import { Image } from "astro:assets";
 import { whoCanParticipate } from "@/data";
 ---
 
-<div class="space-y-6 md:space-y-10">
-  <div class="space-y-4 md:space-y-6">
-    <h2 class="font-adoha text-2xl md:text-[32px] md:leading-[39.84px]">
+<div class="wcp space-y-6 md:space-y-10">
+  <div class="wcp-text opacity-0 space-y-4 md:space-y-6">
+    <h2 class="sr-only">Who Can Participate ?</h2>
+    <h2
+      class="font-adoha text-2xl md:text-[32px] md:leading-[39.84px]"
+      aria-hidden="true"
+    >
       Who Can <span class="text-[#7B9516]">Participate</span> ?
     </h2>
-    <p class="text-sm md:text-base text-[#313131] max-w-[735px]">
+    <p class="sr-only">
+      Each team can have up to three members. We encourage you to form teams
+      with complementary skills, such as front-end developers, back-end
+      developers, and UI/UX designers. This diversity will significantly enhance
+      your team’s overall performance and creativity.
+    </p>
+    <p
+      class="text-sm md:text-base text-[#313131] max-w-[735px]"
+      aria-hidden="true"
+    >
       Each team can have up to three members. We encourage you to form teams
       with complementary skills, such as front-end developers, back-end
       developers, and UI/UX designers. This diversity will significantly enhance
       your team’s overall performance and creativity.
     </p>
   </div>
-  <div class="flex flex-wrap justify-center gap-6">
+  <div class="wcp-cards flex flex-wrap justify-center gap-6">
     {
       whoCanParticipate.map(({ title, description, image }) => (
-        <div class="group bg-[#F3F3F7] hover:bg-[#e6e6f7] transition-all duration-300 flex-1 min-w-[300px] max-w-[360px] flex flex-col rounded-[28px] gap-4 items-start p-4">
+        <div class="group opacity-0 bg-[#F3F3F7] hover:bg-[#e6e6f7] transition-all duration-300 flex-1 min-w-[300px] max-w-[360px] flex flex-col rounded-[28px] gap-4 items-start p-4">
           <Image src={image} alt={title} class="rounded-xl overflow-hidden" />
           <div class="flex flex-col gap-1 md:gap-2.5">
             <h3 class="font-bold text-lg md:text-xl">{title}</h3>
@@ -29,3 +42,104 @@ import { whoCanParticipate } from "@/data";
     }
   </div>
 </div>
+
+<script>
+  import { stagger, animate, inView, timeline } from "motion";
+  import SplitType from "split-type";
+  import { screenSize } from "@/utils";
+
+  function animateWCP() {
+    const wcp = document.querySelector(".wcp");
+    if (!wcp) {
+      console.error("Who can participate section not found");
+      return;
+    }
+    inView(
+      ".wcp .wcp-text",
+      (info) => {
+        info.target.classList.toggle("opacity-0");
+        const headingWords = new SplitType(".wcp h2[aria-hidden='true']", {
+          types: "words",
+        }).words!;
+        const paragraphLines = new SplitType(".wcp  p[aria-hidden='true']", {
+          types: "lines",
+        }).lines!;
+        timeline([
+          [
+            headingWords,
+            {
+              y: [28, 0],
+              opacity: [0, 1],
+            },
+            {
+              duration: 0.3,
+              delay: stagger(screenSize({ default: 0.12, md: 0.18 })!),
+            },
+          ],
+          [
+            paragraphLines,
+            {
+              y: [28, 0],
+              opacity: [0, 1],
+            },
+            {
+              at: screenSize({ default: "0.12", md: "0.18" })!,
+              duration: 0.24,
+              delay: stagger(screenSize({ default: 0.06, md: 0.08 })!),
+            },
+          ],
+        ]);
+      },
+      {
+        amount: 0.6,
+      },
+    );
+    const animateWcpCards = screenSize({
+      default: () => {
+        const cards = document.querySelectorAll(".wcp .wcp-cards .group");
+        cards.forEach((card) => {
+          inView(
+            card,
+            (info) => {
+              animate(
+                info.target,
+                {
+                  y: [64, 0],
+                  opacity: [0, 1],
+                },
+                {
+                  duration: 0.4,
+                },
+              );
+            },
+            { amount: 0.4 },
+          );
+        });
+      },
+      md: () => {
+        inView(
+          ".wcp .wcp-cards",
+          (info) => {
+            const cards = Array.from(info.target.children);
+            animate(
+              cards,
+              {
+                y: [120, 0],
+                opacity: [0, 1],
+              },
+              {
+                duration: 0.6,
+                delay: stagger(0.24),
+              },
+            );
+          },
+          {
+            amount: 0.5,
+          },
+        );
+      },
+    });
+    animateWcpCards?.();
+  }
+  animateWCP();
+</script>

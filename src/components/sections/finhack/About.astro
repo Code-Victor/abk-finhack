@@ -1,11 +1,13 @@
 ---
 import { Image } from "astro:assets";
 import Abeokuta from "@/assets/images/abeokuta.png";
+import Money1 from "@/assets/images/money-1.png";
+import Money2 from "@/assets/images/money-2.png";
 ---
 
-<section id="about" class="bg-[#020323]">
+<section id="about" class="bg-[#020323] relative">
   <div
-    class="max-w-6xl mx-auto py-16 md:py-20 px-4 grid md:grid-cols-2 lg:grid-cols-5 items-center gap-12"
+    class="max-w-6xl mx-auto py-24 md:py-36 px-4 grid md:grid-cols-2 lg:grid-cols-5 items-center gap-12"
   >
     <div
       class="relative w-full max-w-[360px] pl-4 lg:col-span-2 mx-auto md:mx-0"
@@ -53,8 +55,36 @@ import Abeokuta from "@/assets/images/abeokuta.png";
       </p>
     </div>
   </div>
+  <div class="absolute bottom-0 right-0 [--size:96px] md:[--size:123px] blur-[80px] md:blur-[100px] size-[--size] overflow-hidden">
+    <div
+      class="bg-[#AACF1D] size-[calc(var(--size)_*_2)] rounded-full"
+    >
+    </div>
+  </div>
+  <Image
+    src={Money1}
+    alt="money icon"
+    class="animate-[bounce_4s_ease-in-out_infinite] absolute top-0 right-4 md:top-10 md:right-12 lg:right-24 w-[75px]"
+  />
+  <Image
+    src={Money2}
+    alt="money icon"
+    class="motion-safe:animate-[bounce-custom_4s_ease-in-out_infinite] absolute bottom-0 left-0 md:left-4 translate-y-1/2 z-[2] w-[90px] md:w-[150px]"
+  />
 </section>
-<style></style>
+<style>
+  @keyframes bounce-custom {
+    0%,
+    100% {
+      transform: translateY(25%);
+      animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    }
+    50% {
+      transform: translateY(50%);
+      animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    }
+  }
+</style>
 <script>
   import { inView, animate, stagger, timeline } from "motion";
   import SplitType, { type TargetElement } from "split-type";
