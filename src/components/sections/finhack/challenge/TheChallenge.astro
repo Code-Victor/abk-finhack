@@ -1,25 +1,64 @@
-<div
-  class="pl-4 py-4 border-l-2 md:border-l-[3px] border-[#AACF1D] flex flex-col gap-4 md:gap-10"
->
-  <h2 class="font-adoha text-3xl md:text-[44px] md:leading-[66px]">
-    <!-- Darking the challnge color -->
-    The <span class="text-[#7B9516]">Challenge</span>
-  </h2>
-  <p class="text-[#313131] text-sm md:text-base">
-    <span class="font-medium">
-      Utilize <a
-        href="https://docs.payaza.africa/developers"
-        target="_blank"
-        class="underline font-semibold">Payaza’s API</a
-      > to create innovative crowdfunding solutions that address everyday challenges
-      within your community. Your solution should be engaging, transparent, and designed
-      to make a meaningful impact.
-    </span><br /><br />
-    In this inaugural edition of Abeokuta FinHack, we invite you to harness technology
-    to tackle challenges within your immediate community. Collaborate with professionals,
-    friends, and peers from various universities, communities, and organizations
-    to develop practical solutions to real-world problems. Please review the application
-    guidelines below. If your application is successful, we will contact you to proceed
-    to the next stage.
-  </p>
+<div class="pl-4 py-4 border-l-2 md:border-l-[3px] border-[#AACF1D]">
+  <div class="the-challenge opacity-0 flex flex-col gap-4 md:gap-10">
+    <h2 class="font-adoha text-3xl md:text-[44px] md:leading-[66px]">
+      <!-- Darking the challnge color -->
+      The <span class="text-[#7B9516]">Challenge</span>
+    </h2>
+    <div class="space-y-4">
+      <p class="text-[#313131] text-sm md:text-base">
+        <span class="font-medium">
+          Utilize <a
+            href="https://docs.payaza.africa/developers"
+            target="_blank"
+            class="underline font-semibold">Payaza’s API</a
+          > to create innovative crowdfunding solutions that address everyday challenges
+          within your community. Your solution should be engaging, transparent, and
+          designed to make a meaningful impact.
+        </span>
+      </p>
+      <p class="text-[#313131] text-sm md:text-base">
+        In this inaugural edition of Abeokuta FinHack, we invite you to harness
+        technology to tackle challenges within your immediate community.
+        Collaborate with professionals, friends, and peers from various
+        universities, communities, and organizations to develop practical
+        solutions to real-world problems. Please review the application
+        guidelines below. If your application is successful, we will contact you
+        to proceed to the next stage.
+      </p>
+    </div>
+  </div>
 </div>
+
+<script>
+  import { screenSize } from "@/utils";
+  import { animate, inView, stagger } from "motion";
+  const EASE = [0.17, 0.55, 0.55, 1] as const;
+
+  function animateChallenge() {
+    inView(
+      ".the-challenge",
+      (info) => {
+        info.target.classList.toggle("opacity-0");
+        const heading = info.target.querySelector("h2");
+        const paragraphs = Array.from(info.target.querySelectorAll("p"));
+        const elements = [heading, ...paragraphs] as Element[];
+        animate(
+          elements,
+          {
+            x: [28, 0],
+            opacity: [0, 1],
+          },
+          {
+            easing: EASE,
+            duration: 0.6,
+            delay: stagger(screenSize({ default: 0.16, md: 0.24 })!),
+          },
+        );
+      },
+      {
+        amount: 0.4,
+      },
+    );
+  }
+  animateChallenge();
+</script>
