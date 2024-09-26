@@ -10,25 +10,38 @@ import Abeokuta from "@/assets/images/abeokuta.png";
     <div
       class="relative w-full max-w-[360px] pl-4 lg:col-span-2 mx-auto md:mx-0"
     >
-      <div class="relative ">
+      <div class="relative about-image opacity-0">
         <Image
-          class="rounded-[24px] z-[1] relative "
+          class="rounded-[24px] z-[1] relative"
           src={Abeokuta}
           alt="Abeokuta"
           width="638"
           height="577"
         />
-        <div
-          class="absolute inset-0 bg-[#AACF1D] rounded-[36px] -translate-x-4 translate-y-4"
-        >
-        </div>
+        <div class="absolute inset-0 bg-[#AACF1D] rounded-[36px]"></div>
       </div>
     </div>
-    <div class="flex flex-col gap-2 md:gap-4 text-white lg:col-span-3">
-      <h2 class="font-adoha text-3xl md:text-[44px] md:leading-[66px]">
+    <div
+      class="about-text opacity-0 flex flex-col gap-2 md:gap-4 text-white lg:col-span-3"
+    >
+      <h2 class="sr-only">why Abeokuta FinHack?</h2>
+      <h2
+        class="font-adoha text-3xl md:text-[44px] md:leading-[66px]"
+        aria-hidden="true"
+      >
         Why Abeokuta <span class="text-[#aacf1d]">FinHack</span>
       </h2>
-      <p class="text-sm md:text-base text-[#F2F2F2]">
+      <p class="sr-only">
+        Abeokuta FinHack is a local fintech event and competition designed by
+        The Radiating Church Business & Career Network to drive innovation in
+        the financial sector while exposing young people to world-class solution
+        development models and processes. By bringing together innovators,
+        developers, creatives, and industry experts, this event offers a prime
+        opportunity to learn, network, and discover cutting-edge solutions that
+        make financial services more secure, inclusive, and accessible for
+        everyone.
+      </p>
+      <p class="display-only text-sm md:text-base text-[#F2F2F2]">
         Abeokuta FinHack is a local fintech event and competition designed by
         The Radiating Church Business & Career Network to drive innovation in
         the financial sector while exposing young people to world-class solution
@@ -41,3 +54,101 @@ import Abeokuta from "@/assets/images/abeokuta.png";
     </div>
   </div>
 </section>
+<style></style>
+<script>
+  import { inView, animate, stagger, timeline } from "motion";
+  import SplitType, { type TargetElement } from "split-type";
+  import { screenSize } from "@/utils";
+  const EASE = [0.17, 0.55, 0.55, 1] as const;
+  function animateAbout() {
+    // const about = document.querySelector("#about");
+    // if (!about) {
+    //   console.error("About section not found");
+    //   return;
+    // }
+    inView(
+      "#about .about-image",
+      (info) => {
+        const aboutImageBg = info.target.querySelector(".about-image div")!;
+
+        timeline([
+          [
+            info.target,
+            {
+              y: [28, 0],
+              opacity: [0, 1],
+            },
+            {
+              duration: 0.6,
+            },
+          ],
+          [
+            aboutImageBg,
+            {
+              y: [0, 16],
+              x: [0, -16],
+            },
+            {
+              duration: 0.4,
+              at: "-0.2",
+            },
+          ],
+        ]);
+      },
+      {
+        amount: 0.5,
+      },
+    );
+    inView(
+      "#about .about-text",
+      (info) => {
+        info.target.classList.toggle("opacity-0");
+        const headingWords = new SplitType("#about .about-text h2.font-adoha", {
+          types: "words",
+        }).words!;
+        const paragraphLines = new SplitType(
+          "#about .about-text p.display-only",
+          {
+            types: "lines",
+          },
+        ).lines!;
+        const aboutTextElements = [...headingWords, ...paragraphLines];
+        timeline(
+          [
+            [
+              headingWords,
+              {
+                y: [28, 0],
+                opacity: [0, 1],
+              },
+              {
+                duration: 0.36,
+                delay: stagger(screenSize({ default: 0.12, md: 0.18 })!),
+              },
+            ],
+            [
+              paragraphLines,
+              {
+                y: [28, 0],
+                opacity: [0, 1],
+              },
+              {
+                at: screenSize({ default: "0.12", md: "0.18" })!,
+                duration: 0.24,
+                delay: stagger(screenSize({ default: 0.06, md: 0.08 })!),
+              },
+            ],
+          ],
+          {
+            // delay: stagger(0.24),
+          },
+        );
+      },
+      {
+        amount: 0.5,
+      },
+    );
+  }
+
+  animateAbout();
+</script>
