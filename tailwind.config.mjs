@@ -15,6 +15,10 @@ export default {
       animation: {
         aurora: "aurora 60s linear infinite",
       },
+      animation: {
+        disappear: "disappear 5s ease-in-out forwards",
+        reveal: "reveal 1s ease-in-out forwards",
+      },
       keyframes: {
         aurora: {
           from: {
@@ -22,6 +26,22 @@ export default {
           },
           to: {
             backgroundPosition: "350% 50%, 350% 50%",
+          },
+        },
+        reveal: {
+          "100%": {
+            opacity: 1,
+          },
+        },
+        disappear: {
+          "0%": {
+            opacity: 1,
+          },
+          "90%": {
+            opacity: 1,
+          },
+          "100%": {
+            opacity: 0,
           },
         },
       },

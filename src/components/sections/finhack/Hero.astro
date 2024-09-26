@@ -9,11 +9,14 @@ import { Image } from "astro:assets";
 ---
 
 <AuroraBackground
-  class="pt-[calc(var(--navbar-height)_+_36px)] bg-[#010225] w-full relative z-0 grid place-items-center min-h-[100vh!important] xl:max-h-[1024px] xl:min-h-min mx-auto"
+  class="finhack-hero pt-[calc(var(--navbar-height)_+_36px)] bg-[#010225] w-full relative z-0 grid place-items-center min-h-[100vh!important] xl:max-h-[1024px] xl:min-h-min mx-auto"
   showRadialGradient
 >
-  <div class="grid gap-6 xl:gap-8">
-    <AbkFinHackLogo class="w-[80%] md:w-full max-w-[520px] mx-auto" />
+  <div id="hero" class="opacity-0 animate-reveal animation-delay [--animation-delay:2s] grid gap-6 xl:gap-8">
+    <AbkFinHackLogo
+      aria-label="Abeokuta FinHack Logo"
+      class="finhack-logo w-[80%] md:w-full max-w-[520px] mx-auto"
+    />
     <h1
       class="font-medium text-lg md:text-2xl lg:text-3xl text-white text-center font-dm-sans"
     >
@@ -38,3 +41,39 @@ import { Image } from "astro:assets";
     class="absolute bottom-0 right-0 mix-blend-color-dodge object-cover z-[-1]"
   />
 </AuroraBackground>
+
+<script>
+  import { stagger, animate } from "motion";
+  import { screenSize } from "@/utils";
+
+  function animateHero() {
+    const hero = document.querySelector(".finhack-hero");
+    if (!hero) {
+      console.error("Hero not found");
+      return;
+    }
+    const logo = hero.querySelector(".finhack-logo");
+    const heading = hero.querySelector("h1");
+    const cta = hero.querySelector("a");
+    const countDown = hero.querySelector(".countdown");
+    if (!(logo && heading && cta && countDown)) {
+      console.error("Hero elements not found");
+      return;
+    }
+    const heroElements = [logo, heading, cta, countDown];
+    document.querySelector("#hero")?.classList.toggle("opacity-0");
+    animate(
+      heroElements,
+      {
+        y: [28, 0],
+        opacity: [0, 1],
+        filter: ["blur(8px)", "blur(0)"],
+      },
+      {
+        duration: 0.6,
+        delay: stagger(screenSize({ default: 0.16, md: 0.24 })!),
+      },
+    );
+  }
+  animateHero()
+</script>

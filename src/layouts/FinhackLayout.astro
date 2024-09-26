@@ -75,6 +75,9 @@ const { title } = Astro.props;
   .expert-gradient {
     background: linear-gradient(220.83deg, #aacf1d -50.57%, #020323 42.08%);
   }
+  .animation-delay {
+    animation-delay: var(--animation-delay);
+  }
 </style>
 
 <script>
@@ -87,7 +90,7 @@ const { title } = Astro.props;
       if (!lenis) {
         lenis = new Lenis();
         function raf(time: number) {
-            lenis?.raf(time);
+          lenis?.raf(time);
           requestAnimationFrame(raf);
         }
         requestAnimationFrame(raf);
