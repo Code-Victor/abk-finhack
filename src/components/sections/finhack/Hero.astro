@@ -12,10 +12,13 @@ import { Image } from "astro:assets";
   class="finhack-hero pt-[calc(var(--navbar-height)_+_36px)] bg-[#010225] w-full relative z-0 grid place-items-center min-h-[100vh!important] xl:max-h-[1024px] xl:min-h-min mx-auto"
   showRadialGradient
 >
-  <div id="hero" class="opacity-0 animate-reveal animation-delay [--animation-delay:2s] grid gap-6 xl:gap-8">
+  <div
+    id="hero"
+    class="opacity-0 animate-reveal animation-delay [--animation-delay:2s] grid gap-6 xl:gap-8"
+  >
     <AbkFinHackLogo
       aria-label="Abeokuta FinHack Logo"
-      class="finhack-logo w-[80%] md:w-full max-w-[520px] mx-auto"
+      class="finhack-logo w-[80%] md:w-full max-w-[450px] mx-auto"
     />
     <h1
       class="font-medium text-lg md:text-2xl lg:text-3xl text-white text-center font-dm-sans"
@@ -75,5 +78,5 @@ import { Image } from "astro:assets";
       },
     );
   }
-  animateHero()
+  animateHero();
 </script>
