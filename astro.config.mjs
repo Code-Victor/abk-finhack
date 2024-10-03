@@ -5,7 +5,10 @@ import icon from "astro-icon";
 
 import tailwind from "@astrojs/tailwind";
 
+import sitemap from "@astrojs/sitemap";
+
 // https://astro.build/config
 export default defineConfig({
-  integrations: [react(), tailwind(), icon()],
+  site: "https://bcn.theradiating.church",
+  integrations: [react(), tailwind(), icon(), sitemap()],
 });
