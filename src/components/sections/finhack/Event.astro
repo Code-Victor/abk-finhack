@@ -1,0 +1,72 @@
+---
+import { Image } from "astro:assets";
+import Rocket from "@/assets/images/rocket.png";
+---
+
+<section class="bg-[#010225]">
+  <div class="bg-[#040640] hero-vanish">
+    <div
+      class="events opacity-0 max-w-6xl mx-auto py-8 md:py-10 px-4 flex flex-col gap-3 items-center justify-center text-center relative"
+    >
+      <Image
+        src={Rocket}
+        alt="Rocket signifying speed"
+        class="absolute w-[15%] min-w-[98px] max-w-[200px]"
+      />
+      <p class="text-[#aacf1d] font-semibold text-lg md:text-2xl ">
+        Launch Event
+      </p>
+      <h2
+        class="font-adoha text-white text-3xl md:text-[44px] md:leading-[66px]"
+      >
+        Building the Next Billion-Dollar Startup
+      </h2>
+      <p class="text-base md:text-lg text-white font-medium mb-2">
+        Saturday, October 26
+      </p>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { stagger, animate, inView, timeline } from "motion";
+  import { screenSize } from "@/utils";
+
+  function animateEvent() {
+    inView(
+      ".events",
+      ({ target }) => {
+        const eventElements = target.querySelectorAll("*:not(img)");
+        const image = target.querySelector("img")!;
+        target.classList.toggle("opacity-0");
+        const delay = screenSize({ default: 0.16, md: 0.24 })!;
+        timeline([
+          [
+            eventElements,
+            {
+              y: [28, 0],
+              opacity: [0, 1],
+              filter: ["blur(8px)", "blur(0)"],
+            },
+            {
+              duration: 0.6,
+              delay: stagger(delay),
+            },
+          ],
+          [
+            image,
+            { left: ["-60%", "0%"], top: ["200%", "-5%"] },
+            {
+              duration: 0.6,
+              delay,
+            },
+          ],
+        ]);
+      },
+      {
+        amount: 0.6,
+      },
+    );
+  }
+  animateEvent();
+</script>

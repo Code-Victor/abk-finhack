@@ -37,6 +37,7 @@ const { title } = Astro.props;
 
   :root {
     --navbar-height: 62px;
+    --hero-padding-bottom: 48px;
   }
   html {
     scroll-behavior: smooth;
@@ -77,6 +78,11 @@ const { title } = Astro.props;
   }
   .animation-delay {
     animation-delay: var(--animation-delay);
+  }
+  .hero-vanish {
+    --vanish: linear-gradient(to bottom, white 0%, white calc(100% - var(--hero-padding-bottom)), transparent);
+    mask: var(--vanish);
+    -webkit-mask: var(--vanish);
   }
 </style>
 

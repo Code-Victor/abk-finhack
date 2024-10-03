@@ -8,42 +8,44 @@ import Abstract2 from "@/assets/images/abstract-2.png";
 import { Image } from "astro:assets";
 ---
 
-<AuroraBackground
-  class="finhack-hero pt-[calc(var(--navbar-height)_+_36px)] bg-[#010225] w-full relative z-0 grid place-items-center min-h-[100vh!important] xl:max-h-[1024px] xl:min-h-min mx-auto"
-  showRadialGradient
->
-  <div
-    id="hero"
-    class="opacity-0 animate-reveal animation-delay [--animation-delay:2s] grid gap-6 xl:gap-8"
+<div class="bg-[#040640]">
+  <AuroraBackground
+    class="finhack-hero pt-[calc(var(--navbar-height)_+_36px)] bg-[#010225] w-full relative z-0 grid place-items-center min-h-[100vh!important] xl:max-h-[1024px] xl:min-h-min mx-auto hero-vanish"
+    showRadialGradient
   >
-    <AbkFinHackLogo
-      aria-label="Abeokuta FinHack Logo"
-      class="finhack-logo w-[80%] md:w-full max-w-[450px] mx-auto"
+    <div
+      id="hero"
+      class="opacity-0 animate-reveal animation-delay [--animation-delay:2s] grid gap-6 xl:gap-8"
+    >
+      <AbkFinHackLogo
+        aria-label="Abeokuta FinHack Logo"
+        class="finhack-logo w-[80%] md:w-full max-w-[436px] mx-auto"
+      />
+      <h1
+        class="font-medium text-lg md:text-xl lg:text-2xl text-white text-center font-dm-sans"
+      >
+        Hack The Crowd, Fund The Future
+      </h1>
+      <Button as="a" href={REGISTRATION_LINK} class="justify-self-center">
+        <Icon name="ri:sparkling-line" class="text-[#333333]" />
+        Register Now</Button
+      >
+      <Countdown />
+    </div>
+    <Image
+      src={Abstract1}
+      alt="abstract"
+      loading="eager"
+      class="absolute bottom-0 left-0 mix-blend-color-dodge object-cover z-[-1]"
     />
-    <h1
-      class="font-medium text-lg md:text-2xl lg:text-3xl text-white text-center font-dm-sans"
-    >
-      Hack The Crowd, Fund The Future
-    </h1>
-    <Button as="a" href={REGISTRATION_LINK} class="justify-self-center">
-      <Icon name="ri:sparkling-line" class="text-[#333333]" />
-      Register Now</Button
-    >
-    <Countdown />
-  </div>
-  <Image
-    src={Abstract1}
-    alt="abstract"
-    loading="eager"
-    class="absolute bottom-0 left-0 mix-blend-color-dodge object-cover z-[-1]"
-  />
-  <Image
-    src={Abstract2}
-    alt="abstract"
-    loading="eager"
-    class="absolute bottom-0 right-0 mix-blend-color-dodge object-cover z-[-1]"
-  />
-</AuroraBackground>
+    <Image
+      src={Abstract2}
+      alt="abstract"
+      loading="eager"
+      class="absolute bottom-0 right-0 mix-blend-color-dodge object-cover z-[-1]"
+    />
+  </AuroraBackground>
+</div>
 
 <script>
   import { stagger, animate } from "motion";

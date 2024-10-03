@@ -20,7 +20,7 @@ const timeAway = {
 };
 ---
 
-<div class="countdown flex gap-2 justify-center items-center px-4 mb-8">
+<div class="countdown flex gap-2 justify-center items-center px-4 mb-[--hero-padding-bottom]">
   {
     (Object.keys(timeAway) as (keyof typeof timeAway)[]).map((key) => {
       const isSec = key === "seconds";
