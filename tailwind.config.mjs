@@ -12,12 +12,11 @@ export default {
         "dm-sans": ["'DM Sans Variable'", ...defaultTheme.fontFamily.sans],
         adoha: ["Adoha", ...defaultTheme.fontFamily.sans],
       },
-      animation: {
-        aurora: "aurora 60s linear infinite",
-      },
+
       animation: {
         disappear: "disappear 5s ease-in-out forwards",
         reveal: "reveal 1s ease-in-out forwards",
+        aurora: "aurora 90s linear infinite",
       },
       keyframes: {
         aurora: {
