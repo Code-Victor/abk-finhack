@@ -80,7 +80,12 @@ const { title } = Astro.props;
     animation-delay: var(--animation-delay);
   }
   .hero-vanish {
-    --vanish: linear-gradient(to bottom, white 0%, white calc(100% - var(--hero-padding-bottom)), transparent);
+    --vanish: linear-gradient(
+      to bottom,
+      white 0%,
+      white calc(100% - var(--hero-padding-bottom)),
+      transparent
+    );
     mask: var(--vanish);
     -webkit-mask: var(--vanish);
   }
@@ -88,8 +93,19 @@ const { title } = Astro.props;
 
 <script>
   import Lenis from "lenis";
+  import { screenSize } from "@/utils";
   import { smoothScrollStore } from "@/stores";
   let lenis: Lenis | null = null;
+
+  screenSize({
+    // disable smooth scroll on small screens for performance reasons
+    default: () => {
+      smoothScrollStore.set(false);
+    },
+    lg: () => {
+      smoothScrollStore.set(true);
+    },
+  })?.();
   smoothScrollStore.subscribe((curr) => {
     console.log("curr", curr);
     if (curr) {
